@@ -24,7 +24,7 @@ class NewStudentRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required|alpha|max:20',
+            'name' => 'required|string|max:20',
             'rollno' => 'required|alpha_num|size:8',
             'key' => 'required|max:10'
         ];
