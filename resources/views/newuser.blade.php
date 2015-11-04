@@ -26,7 +26,7 @@
                         SIGN UP
                     </div>
                     <div class="panel-body">
-                        <form class="form-horizontal" method="post" accept-charset="UTF-8" action="newuser">
+                        <form class="form-horizontal" method="post" accept-charset="UTF-8">
                             <fieldset>
                                 <input name="_token" type="hidden" value="{{ csrf_token() }}">
                                 <div class="form-group">
