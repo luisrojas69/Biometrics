@@ -11,20 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'LoginController@login');
 
-Route::get('hello', 'PagesController@hello');
+Route::post('/', 'LoginController@show');
 
-Route::get('about', 'PagesController@about');
+Route::get('newuser', 'LoginController@newuser');
 
-Route::get('login', 'LoginController@login');
-
-Route::post('login', 'LoginController@show');
-
-Route::get('hello/{id}', 'PagesController@show');
-
-Route::get('login/newuser', 'LoginController@newuser');
-
-Route::post('login/newuser', 'LoginController@shownew');
+Route::post('newuser', 'LoginController@shownew');
