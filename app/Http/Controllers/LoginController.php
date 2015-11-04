@@ -21,7 +21,7 @@ class LoginController extends Controller
     {        
         student::create($request->all());
         
-        return redirect('login');
+        return redirect('/');
     }
     
     public function show(Requests\LoginRequest $request)

@@ -15,6 +15,6 @@ Route::get('/', 'LoginController@login');
 
 Route::post('/', 'LoginController@show');
 
-Route::get('newuser', 'LoginController@newuser');
+Route::get('/newuser', 'LoginController@newuser');
 
-Route::post('newuser', 'LoginController@shownew');
+Route::post('/newuser', 'LoginController@shownew');
