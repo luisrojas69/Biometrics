@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="css/paperbootstrap.min.css">
+        <link href='//fonts.googleapis.com/css?family=RobotoDraft:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <style>
+            body {
+                font-family:'Roboto';
+                background-color:#E0E0E0;
+            }
+            
+            .panel {
+                margin-top:25%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="col-md-4 col-sm-12 col-md-offset-4">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-10">
+                                LOGIN
+                            </div>
+                            <div class="col-xs-2">
+                                <a href="http://www.ncuindia.edu" style="text-decoration:none;">NCU</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <?php echo $__env->yieldContent('form'); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

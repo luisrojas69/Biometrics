@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="css/paperbootstrap.min.css">
+        <link href='//fonts.googleapis.com/css?family=RobotoDraft:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <style>
+            body {
+                font-family:'Roboto';
+                background-color:#E0E0E0;
+            }
+            
+            .panel {
+                margin-top:25%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-md-4 col-xs-12 col-md-offset-4 col-sm-offset-7">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-10">
+                                LOGIN
+                            </div>
+                            <div class="col-xs-2">
+                                <a href="http://ncuindia.edu" style="text-decoration:none;" target="_blank">NCU</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-horizontal" method="post" accept-charset="UTF-8">
+                            <fieldset>
+                                <input name="_token" type="hidden" value="<?php echo e(csrf_token()); ?>">
+                                <div class="form-group">
+                                    <label for="rollno" class="col-sm-2 control-label">Roll Number</label>
+                                    <div class="col-sm-10">
+                                        <input name="rollno" type="text" class="form-control" id="rollno" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pass" class="col-sm-2 control-label">Password</label>
+                                    <div class="col-sm-10">
+                                        <input name="pass" type="password" class="form-control" id="pass" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12 col-sm-offset-6 col-xs-offset-3">
+                                        <a class="btn btn-default" href="login/newuser">New User</a>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </body>
+</html>

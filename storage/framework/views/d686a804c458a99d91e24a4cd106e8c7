@@ -1,0 +1,10 @@
+<?php $__env->startSection('content'); ?>
+<div class="title">
+    <?php echo e($aboutname); ?>
+
+    <?php if($age >= 18): ?>
+        <i class="fa fa-check" style="color:green;"></i>
+    <?php endif; ?>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('gen', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
