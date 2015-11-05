@@ -4449,3 +4449,18 @@ Stack trace:
 #58 C:\Users\Aanand Vardhan\Desktop\Biometrics\public\index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 >>>>>>> 314bf157e15a99d63e247c48cc369887482ab86f
 #59 {main}  
+[2015-11-04 18:55:17] local.ERROR: exception 'InvalidArgumentException' with message 'Command "mugrate" is not defined.
+
+Did you mean one of these?
+    migrate
+    migrate:status
+    migrate:refresh
+    migrate:rollback
+    migrate:install
+    migrate:reset' in C:\Users\abhinavmathur96\Documents\GitHub\Biometrics\vendor\symfony\console\Application.php:549
+Stack trace:
+#0 C:\Users\abhinavmathur96\Documents\GitHub\Biometrics\vendor\symfony\console\Application.php(192): Symfony\Component\Console\Application->find('mugrate')
+#1 C:\Users\abhinavmathur96\Documents\GitHub\Biometrics\vendor\symfony\console\Application.php(126): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 C:\Users\abhinavmathur96\Documents\GitHub\Biometrics\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(107): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 C:\Users\abhinavmathur96\Documents\GitHub\Biometrics\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 {main}  

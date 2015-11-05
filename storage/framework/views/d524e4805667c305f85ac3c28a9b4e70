@@ -33,12 +33,14 @@
                                     <div class="col-sm-12">
                                         <input name="rollno" type="text" class="form-control" id="rollno" placeholder="Roll Number">
                                     </div>
+                                    <div class="col-sm-12">
+                                        <input name="pass" type="password" class="form-control" id="pass" placeholder="Password">
+                                    </div>
                                 </div>
                     </div>
                     <div class="panel-footer">
                         <div class="row">
-                            <div class="col-xs-6"><a class="btn btn-default btn-block" href="newuser">New User</a></div>
-                            <div class="col-xs-6"><button type="submit" class="btn btn-primary btn-block">Submit</button></div>
+                            <div class="col-xs-6 col-xs-offset-6"><button type="submit" class="btn btn-primary btn-block">Login</button></div>
                         </div>
                     </div>
                             </fieldset>
