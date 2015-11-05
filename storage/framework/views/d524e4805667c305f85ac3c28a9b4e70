@@ -19,7 +19,6 @@
     </head>
     <body>
         <div class="container-fluid">
-            <!--<div class="row">-->
             <div class="col-md-4 col-xs-12 col-md-offset-4 col-sm-offset-7">
                 <div class="panel panel-warning">
                     <div class="panel-heading">
@@ -33,6 +32,8 @@
                                     <div class="col-sm-12">
                                         <input name="rollno" type="text" class="form-control" id="rollno" placeholder="Roll Number">
                                     </div>
+                                </div>
+                                <div class="form-group">
                                     <div class="col-sm-12">
                                         <input name="pass" type="password" class="form-control" id="pass" placeholder="Password">
                                     </div>
