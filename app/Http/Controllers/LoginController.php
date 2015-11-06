@@ -7,6 +7,11 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 class LoginController extends Controller
 {
+    //public function __construct()
+    //{
+    //    $this->middleware('auth');
+    //}
+    
     public function login()
     {
         return view('login');
@@ -26,15 +31,7 @@ class LoginController extends Controller
     
     public function show(Requests\LoginRequest $request)
     {
-        $roll = $request->get('rollno');
-        $pas = $request->get('pass');
-        if($roll == 'admin' && $pas == 'pass')
-        {
-            return redirect('/newuser');
-        }
-        else
-        {
-            return redirect('/');
-        }
+        $input=$request->all();
+        return $input;
     }
 }
