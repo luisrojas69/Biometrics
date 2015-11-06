@@ -26,7 +26,15 @@ class LoginController extends Controller
     
     public function show(Requests\LoginRequest $request)
     {
-        $input = $request->all();
-        return $input;
+        $roll = $request->get('rollno');
+        $pas = $request->get('pass');
+        if($roll == 'admin' && $pas == 'pass')
+        {
+            return redirect('/newuser');
+        }
+        else
+        {
+            return redirect('/');
+        }
     }
 }
