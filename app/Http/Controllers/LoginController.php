@@ -9,7 +9,7 @@ class LoginController extends Controller
 {
     //public function __construct()
     //{
-    //    $this->middleware('auth');
+    //    $this->middleware('auth',['only'=>'newuser']);
     //}
     
     public function login()
