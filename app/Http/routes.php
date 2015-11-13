@@ -18,3 +18,5 @@ Route::post('/', 'LoginController@show');
 Route::get('/newuser', 'LoginController@newuser');
 
 Route::post('/newuser', 'LoginController@shownew');
+
+Route::get('/home', 'LoginController@home');

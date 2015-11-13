@@ -34,4 +34,9 @@ class LoginController extends Controller
         $input=$request->all();
         return $input;
     }
+    
+    public function home()
+    {
+        return view('home');
+    }
 }

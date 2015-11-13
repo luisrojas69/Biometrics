@@ -30,7 +30,7 @@
                                 <input name="_token" type="hidden" value="<?php echo e(csrf_token()); ?>">
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <input name="rollno" type="text" class="form-control" id="rollno" placeholder="Roll Number">
+                                        <input name="rollno" type="text" class="form-control" id="rollno" placeholder="Username">
                                     </div>
                                 </div>
                                 <div class="form-group">
