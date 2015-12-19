@@ -12,7 +12,7 @@ class LoginController extends Controller
     //    $this->middleware('auth',['only'=>'newuser']);
     //}
     
-    public function login()
+    public function adminlogin()
     {
         return view('login');
     }
@@ -38,5 +38,10 @@ class LoginController extends Controller
     public function home()
     {
         return view('home');
+    }
+    
+    public function dash()
+    {
+        return view('dash');
     }
 }
