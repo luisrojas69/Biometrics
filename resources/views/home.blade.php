@@ -17,12 +17,18 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+    <style>
+        i.full {
+            line-height: 2 !important;
+        }
+    </style>
 </head>
     
 <body>
     <nav>
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo"><i class="material-icons left">fingerprint</i> BIOMETRICS</a>
+            <a href="#" class="brand-logo"><i class="material-icons left full">fingerprint</i> BIOMETRICS</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="#"><i class="material-icons">people</i></a></li>
             </ul>

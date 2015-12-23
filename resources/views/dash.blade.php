@@ -11,8 +11,10 @@
 
     <title>Dashboard</title>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+    <link rel="stylesheet" href="css/materialize.min.css">
     
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -29,6 +31,10 @@
             border-bottom: 1px solid #000;
             box-shadow: 0 1px 0 0 #000;
         }
+        
+        i.full {
+            line-height: 2 !important;
+        }
     </style>
 
 </head>
@@ -36,7 +42,7 @@
 <body>
         <nav>
         <div class="nav-wrapper orange">
-            <a href="#" class="brand-logo"><i class="material-icons left">fingerprint</i> BIOMETRICS</a>
+            <a href="#" class="brand-logo"><i class="material-icons left full">fingerprint</i> BIOMETRICS</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="#" class="dropdown-button" data-activates="dropdown1"><i class="material-icons">account_circle</i></a></li>
                 <li><a id="toggle_search" href="#"><i class="material-icons">file_upload</i></a></li>
