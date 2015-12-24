@@ -1,0 +1,40 @@
+#search
+{
+    display: none;
+    margin-bottom: 0px;
+}
+        
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+}
+    
+i.full {
+    line-height: 2 !important;
+}
+        
+#slide-out {
+    margin-top: 65px;
+}
+        
+@media only screen and (max-width : 992px) {
+    #slide-out {
+        margin-top: 0px;
+    }
+}
+
+#padd {
+    padding-left: 250px;
+    padding-top: 5px;
+    background-color: #F5F5F5;
+}
+
+@media only screen and (max-width : 992px) {
+      #padd {
+        padding-left: 0;
+      }
+}
+
+.page-footer {
+    margin-left: -9px;
+}
