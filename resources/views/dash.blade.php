@@ -9,7 +9,7 @@
     <meta name="description" content="NCU Biometrics - Dashboard">
     <meta name="author" content="AAA">
 
-    <title>Dashboard</title>
+    <title>Admin Dashboard</title>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/materialize.min.css">
     
@@ -40,7 +40,7 @@
 </head>
     
 <body>
-        <nav>
+    <nav>
         <div class="nav-wrapper orange">
             <a href="#" class="brand-logo"><i class="material-icons left full">fingerprint</i> BIOMETRICS</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -48,6 +48,12 @@
                 <li><a href="#" class="dropdown-button" data-activates="dropdown1"><i class="material-icons">account_circle</i></a></li>
             </ul>
         </div>
+        <ul id="slide-out" class="side-nav fixed">
+            <li><a href="#">One</a></li>
+            <li><a href="#">Two</a></li>
+            <li><a href="#">Three</a></li>
+        </ul>
+        <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
     </nav>
     
     <ul id="dropdown1" class="dropdown-content">
