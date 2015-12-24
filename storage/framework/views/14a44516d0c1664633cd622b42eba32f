@@ -35,6 +35,16 @@
         i.full {
             line-height: 2 !important;
         }
+        
+        #slide-out {
+            margin-top: 65px;
+        }
+        
+        @media  only screen and (max-width : 992px) {
+            #slide-out {
+                margin-top: 0px;
+            }
+        }
     </style>
 
 </head>
@@ -49,10 +59,25 @@
                 <li><a href="#" class="dropdown-button" data-activates="dropdown1"><i class="material-icons">account_circle</i></a></li>
             </ul>
         </div>
-        <ul id="slide-out" class="side-nav full">
-            <li><a href="#">One</a></li>
-            <li><a href="#">Two</a></li>
-            <li><a href="#">Three</a></li>
+        <ul id="slide-out" class="side-nav full fixed">
+            <li><a href="#">Home</a></li>
+            <li class="no-padding">
+                <ul class="collapsible collapsible-accordion">
+                    <li>
+                        <a class="collapsible-header"><i class="material-icons right">arrow_drop_down</i>Students</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#">ADD</a></li>
+                                <li><a href="#">EDIT</a></li>
+                                <li><a href="#">DELETE</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">Teachers</a></li>
+            <li><a href="#">View Information</a></li>
         </ul>
     </nav>
     
