@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Biometrics - Admin Dashboard">
+    <meta name="description" content="Biometrics - Faculty Dashboard">
     <meta name="author" content="AAA">
 
     <title>Admin Dashboard</title>
@@ -26,11 +26,10 @@
 <body>
     <div class="navbar-fixed">
         <nav>
-            <div class="nav-wrapper orange">
+            <div class="nav-wrapper blue">
                 <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
                 <a href="#" class="brand-logo"><i class="material-icons left full">fingerprint</i> BIOMETRICS</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a id="toggle_search" href="#"><i class="material-icons">file_upload</i></a></li>
                     <li><a href="#" class="dropdown-button" data-activates="dropdown1"><i class="material-icons">account_circle</i></a></li>
                 </ul>
             </div>
@@ -42,9 +41,9 @@
                             <a class="collapsible-header"><i class="material-icons right">arrow_drop_down</i>Students</a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="#">ADD</a></li>
-                                    <li><a href="#">EDIT</a></li>
-                                    <li><a href="#">DELETE</a></li>
+                                    <li><a href="#">REQUEST TO ADD</a></li>
+                                    <li><a href="#">REQUEST TO EDIT</a></li>
+                                    <li><a href="#">REQUEST TO DELETE</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -56,37 +55,9 @@
                             <a class="collapsible-header"><i class="material-icons right">arrow_drop_down</i>Courses</a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="#">ADD</a></li>
-                                    <li><a href="#">EDIT</a></li>
-                                    <li><a href="#">DELETE</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <li class="no-padding">
-                    <ul class="collapsible collapsible-accordion">
-                        <li>
-                            <a class="collapsible-header"><i class="material-icons right">arrow_drop_down</i>Teachers</a>
-                            <div class="collapsible-body">
-                                <ul>
-                                    <li><a href="#">ADD</a></li>
-                                    <li><a href="#">EDIT</a></li>
-                                    <li><a href="#">DELETE</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <li class="no-padding">
-                    <ul class="collapsible collapsible-accordion">
-                        <li>
-                            <a class="collapsible-header"><i class="material-icons right">arrow_drop_down</i>View Information</a>
-                            <div class="collapsible-body">
-                                <ul>
-                                    <li><a href="#">Students</a></li>
-                                    <li><a href="#">Teachers</a></li>
-                                    <li><a href="#">Courses</a></li>
+                                    <li><a href="#">REQUEST TO ADD</a></li>
+                                    <li><a href="#">REQUEST TO EDIT</a></li>
+                                    <li><a href="#">REQUEST TO DELETE</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -114,21 +85,6 @@
     
     <!-- Start of padded div wrapper -->
     <div id="padd">
-        <div id="search" class="row">
-            <div class="container">
-                <form action="#">
-                    <div class="file-field input-field">
-                        <div class="btn white black-text waves-effect waves-orange">
-                            <span>File</span>
-                            <input type="file">
-                        </div>
-                        <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text">
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
         <div class="row">
             <div class="col s12 m4">
                 <div class="card-panel white hoverable">
@@ -142,7 +98,7 @@
             </div>
             <div class="col s12 m4">
                 <div class="card-panel white hoverable">
-                    <p class="flow-text center-align">Courses Running<br>   85</p>
+                    <p class="flow-text center-align">Courses Running<br>85</p>
                 </div>
             </div>
         </div>

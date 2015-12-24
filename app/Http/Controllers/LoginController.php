@@ -44,4 +44,9 @@ class LoginController extends Controller
     {
         return view('dash');
     }
+    
+    public function facu()
+    {
+        return view('facu');
+    }
 }

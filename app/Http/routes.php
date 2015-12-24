@@ -22,3 +22,5 @@ Route::post('/newuser', 'LoginController@shownew');
 Route::get('/home', 'LoginController@home');
 
 Route::get('/dashboard', 'LoginController@dash');
+
+Route::get('/faculty', 'LoginController@facu');
