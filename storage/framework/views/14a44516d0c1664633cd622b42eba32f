@@ -44,8 +44,8 @@
         <div class="nav-wrapper orange">
             <a href="#" class="brand-logo"><i class="material-icons left full">fingerprint</i> BIOMETRICS</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="#" class="dropdown-button" data-activates="dropdown1"><i class="material-icons">account_circle</i></a></li>
                 <li><a id="toggle_search" href="#"><i class="material-icons">file_upload</i></a></li>
+                <li><a href="#" class="dropdown-button" data-activates="dropdown1"><i class="material-icons">account_circle</i></a></li>
             </ul>
         </div>
     </nav>
@@ -72,7 +72,7 @@
     </div>
     
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+    <script src="js/materialize.min.js"></script>
     <script type="text/javascript">
         $(".button-collapse").sideNav();
         $('a#toggle_search').click(function()
