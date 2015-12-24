@@ -94,10 +94,13 @@
                 </li>
                 <div class="row">
                     <div class="col s4">
-                        <a class="btn-flat waves-effect waves-red"><i class="material-icons">bug_report</i></a>
+                        <a class="btn-flat waves-effect waves-red center-align"><i class="material-icons">bug_report</i></a>
                     </div>
                     <div class="col s4">
-                        <a class="btn-flat waves-effect waves-orange"><i class="material-icons">contact_mail</i></a>
+                        <a class="btn-flat waves-effect waves-orange center-align"><i class="material-icons">contact_mail</i></a>
+                    </div>
+                    <div class="col s4">
+                        <a class="btn-flat waves-effect waves-orange center-align"><i class="material-icons">add</i></a>
                     </div>
                 </div>
             </ul>
