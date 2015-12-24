@@ -42,18 +42,18 @@
 <body>
     <nav>
         <div class="nav-wrapper orange">
+            <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
             <a href="#" class="brand-logo"><i class="material-icons left full">fingerprint</i> BIOMETRICS</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a id="toggle_search" href="#"><i class="material-icons">file_upload</i></a></li>
                 <li><a href="#" class="dropdown-button" data-activates="dropdown1"><i class="material-icons">account_circle</i></a></li>
             </ul>
         </div>
-        <ul id="slide-out" class="side-nav fixed">
+        <ul id="slide-out" class="side-nav full">
             <li><a href="#">One</a></li>
             <li><a href="#">Two</a></li>
             <li><a href="#">Three</a></li>
         </ul>
-        <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
     </nav>
     
     <ul id="dropdown1" class="dropdown-content">
