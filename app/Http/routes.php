@@ -24,3 +24,7 @@ Route::get('/home', 'LoginController@home');
 Route::get('/dashboard', 'LoginController@dash');
 
 Route::get('/faculty', 'LoginController@facu');
+
+Route::post('/att', 'RecordController@index');
+
+Route::post('/login', 'LoginController@dash');

@@ -35,14 +35,14 @@
                 </ul>
             </div>
             <ul id="slide-out" class="side-nav full fixed">
-                <li><a href="#">Home</a></li>
+                <li class="active"><a href="#">Home</a></li>
                 <li class="no-padding">
                     <ul class="collapsible collapsible-accordion">
                         <li>
                             <a class="collapsible-header"><i class="material-icons right">arrow_drop_down</i>Students</a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="#">ADD</a></li>
+                                    <li><a class="modal-trigger" href="#add_stud">ADD</a></li>
                                     <li><a href="#">EDIT</a></li>
                                     <li><a href="#">DELETE</a></li>
                                 </ul>
@@ -109,8 +109,20 @@
     
     <ul id="dropdown1" class="dropdown-content">
         <li><a href="#">Settings</a></li>
-        <li><a href="#">Logout</a></li>
+        <li><a href="<?php echo e(URL::to('home')); ?>">Logout</a></li>
     </ul>
+    
+    <!-- add_stud modal -->
+    <div class="modal" id="add_stud">
+        <div class="modal-content">
+            <h2>Header</h2>
+            <p class="flow-text">Paragraph</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+    <!-- end of add_stud modal -->
     
     <!-- Start of padded div wrapper -->
     <div id="padd">
@@ -142,7 +154,7 @@
             </div>
             <div class="col s12 m4">
                 <div class="card-panel white hoverable">
-                    <p class="flow-text center-align">Courses Running<br>   85</p>
+                    <p class="flow-text center-align">Courses Running<br>85</p>
                 </div>
             </div>
         </div>
@@ -161,6 +173,7 @@
             });
             return false;
         });
+        $('.modal-trigger').leanModal();
     </script>
 </body>
     
