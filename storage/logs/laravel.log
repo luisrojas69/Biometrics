@@ -6107,3 +6107,6 @@ Stack trace:
 #45 C:\Users\abhinavmathur96\Documents\GitHub\Biometrics\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(87): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #46 C:\Users\abhinavmathur96\Documents\GitHub\Biometrics\public\index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #47 {main}  
+[2016-01-10 14:34:35] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected end of file' in C:\Users\abhinavmathur96\Documents\GitHub\Biometrics\app\Http\routes.php:32
+Stack trace:
+#0 {main}  

@@ -28,3 +28,5 @@ Route::get('/faculty', 'LoginController@facu');
 Route::post('/att', 'RecordController@index');
 
 Route::post('/login', 'LoginController@dash');
+
+Route::post('/add', 'RecordController@add');

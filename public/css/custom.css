@@ -4,7 +4,7 @@
     margin-bottom: 0px;
 }
         
-.input-field input[type=text]:focus {
+#file input[type=text]:focus {
     border-bottom: 1px solid #000;
     box-shadow: 0 1px 0 0 #000;
 }

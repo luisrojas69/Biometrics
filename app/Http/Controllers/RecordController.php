@@ -26,4 +26,10 @@ class RecordController extends Controller
             return redirect('/home');
         }
     }
+    
+    public function add(Request $request)
+    {
+        $input = $request->all();
+        return $input;
+    }
 }
