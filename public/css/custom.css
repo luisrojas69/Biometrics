@@ -34,3 +34,7 @@ i.full {
         padding-left: 0;
       }
 }
+
+.space {
+    margin-left: 20px !important;
+}

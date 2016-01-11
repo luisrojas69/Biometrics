@@ -27,7 +27,13 @@ class RecordController extends Controller
         }
     }
     
-    public function add(Request $request)
+    public function add_stud(Request $request)
+    {
+        $input = $request->all();
+        return $input;
+    }
+    
+    public function add_facu(Request $request)
     {
         $input = $request->all();
         return $input;

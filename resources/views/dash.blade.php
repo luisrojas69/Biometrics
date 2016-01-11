@@ -70,7 +70,7 @@
                             <a class="collapsible-header"><i class="material-icons right">arrow_drop_down</i>Teachers</a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="#">ADD</a></li>
+                                    <li><a class="modal-trigger" href="#add_facu">ADD</a></li>
                                     <li><a href="#">EDIT</a></li>
                                     <li><a href="#">DELETE</a></li>
                                 </ul>
@@ -116,7 +116,7 @@
     <div class="modal modal-fixed-footer" id="add_stud">
         <div class="modal-content">
             <h2>Add A Student</h2>
-            {!! Form::open(array('url' => 'add')) !!}
+            {!! Form::open(array('url' => 'add_stud')) !!}
                 <div class="row">
                     <div class="input-field col s12">
                         <input type="text" name="name">
@@ -130,7 +130,7 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <select>
+                            <select name="sem">
                                 <option value="" disabled selected>Choose A Sem</option>
                                 <option value="1">I</option>
                                 <option value="2">II</option>
@@ -145,7 +145,7 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <select>
+                            <select name="branch">
                                 <option value="" disabled selected>Choose A Branch</option>
                                 <option value="CSE">CSE</option>
                                 <option value="ECE">ECE</option>
@@ -159,11 +159,78 @@
                 </div>
         </div>
         <div class="modal-footer">
-            <button type="submit" class="btn orange waves-effect">Submit</button>
+            <button type="reset" class="btn orange waves-effect">Reset</button>
+            <button type="submit" class="btn orange waves-effect space">Submit</button>
         </div>
         {!! Form::close() !!}
     </div>
     <!-- end of add_stud modal -->
+    
+    <!-- add_facu modal -->
+    <div class="modal modal-fixed-footer" id="add_facu">
+        <div class="modal-content">
+            <h2>Add A Student</h2>
+            {!! Form::open(array('url' => 'add_facu')) !!}
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" name="name">
+                        <label for="name">Name of Faculty</label>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" name="fid">
+                            <label for="enid">Faculty ID</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" name="emailid">
+                            <label for="enid">Faculty E-Mail ID</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" name="f_enid">
+                            <label for="enid">Faculty Enrollment ID</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <select name="sem">
+                                <option value="" disabled selected>Choose A Sem</option>
+                                <option value="1">I</option>
+                                <option value="2">II</option>
+                                <option value="3">III</option>
+                                <option value="4">IV</option>
+                                <option value="5">V</option>
+                                <option value="6">VI</option>
+                                <option value="7">VII</option>
+                                <option value="8">VIII</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <select name="branch">
+                                <option value="" disabled selected>Choose A Branch</option>
+                                <option value="CSE">CSE</option>
+                                <option value="ECE">ECE</option>
+                                <option value="ME">ME</option>
+                                <option value="CIVIL">CIVIL</option>
+                                <option value="EE">EE</option>
+                                <option value="BBA">BBA</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="modal-footer">
+            <button type="reset" class="btn orange waves-effect">Reset</button>
+            <button type="submit" class="btn orange waves-effect space">Submit</button>
+        </div>
+        {!! Form::close() !!}
+    </div>
+    <!-- end of add_facu modal -->
     
     <!-- Start of padded div wrapper -->
     <div id="padd">
