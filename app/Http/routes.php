@@ -32,3 +32,5 @@ Route::post('/login', 'LoginController@dash');
 Route::post('/add_stud', 'RecordController@add_stud');
 
 Route::post('/add_facu', 'RecordController@add_facu');
+
+Route::post('/edit_stud', 'RecordController@edit');

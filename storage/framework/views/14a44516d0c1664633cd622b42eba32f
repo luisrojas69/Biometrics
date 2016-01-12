@@ -13,6 +13,7 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/materialize.min.css">
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -43,8 +44,8 @@
                             <div class="collapsible-body">
                                 <ul>
                                     <li><a class="modal-trigger" href="#add_stud">ADD</a></li>
-                                    <li><a href="#">EDIT</a></li>
-                                    <li><a href="#">DELETE</a></li>
+                                    <li><a class="modal-trigger" href="#edit_stud">EDIT</a></li>
+                                    <li><a class="modal-trigger" href="#del_stud">DELETE</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -56,9 +57,9 @@
                             <a class="collapsible-header"><i class="material-icons right">arrow_drop_down</i>Courses</a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="#">ADD</a></li>
-                                    <li><a href="#">EDIT</a></li>
-                                    <li><a href="#">DELETE</a></li>
+                                    <li><a class="modal-trigger" href="#add_co">ADD</a></li>
+                                    <li><a class="modal-trigger" href="#edit_co">EDIT</a></li>
+                                    <li><a class="modal-trigger" href="#del_co">DELETE</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -71,8 +72,8 @@
                             <div class="collapsible-body">
                                 <ul>
                                     <li><a class="modal-trigger" href="#add_facu">ADD</a></li>
-                                    <li><a href="#">EDIT</a></li>
-                                    <li><a href="#">DELETE</a></li>
+                                    <li><a class="modal-trigger" href="#edit_facu">EDIT</a></li>
+                                    <li><a class="modal-trigger" href="#del_facu">DELETE</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -99,8 +100,8 @@
                     <div class="col s4">
                         <a class="btn-flat waves-effect waves-orange center-align"><i class="material-icons">contact_mail</i></a>
                     </div>
-                    <div class="col s4">
-                        <a class="btn-flat waves-effect waves-orange center-align"><i class="material-icons">add</i></a>
+                    <div class="col s4 hide-on-large-only">
+                        <a class="btn-flat waves-effect waves-orange center-align"><i class="fa fa-sign-out"></i></a>
                     </div>
                 </div>
             </ul>
@@ -160,18 +161,176 @@
                 </div>
         </div>
         <div class="modal-footer">
-            <button type="reset" class="btn orange waves-effect">Reset</button>
             <button type="submit" class="btn orange waves-effect space">Submit</button>
+            <button type="reset" class="btn orange waves-effect">Reset</button>
         </div>
         <?php echo Form::close(); ?>
 
     </div>
     <!-- end of add_stud modal -->
     
+    <!-- edit_stud modal -->
+    <div class="modal modal-fixed-footer" id="edit_stud">
+        <div class="modal-content">
+            <h2>Edit A Student</h2>
+            <div class="modal_body">
+                <?php echo Form::open(array('url' => 'edit_stud')); ?>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" name="id">
+                            <label for="id">Enter Student ID</label>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn orange waves-effect space">Submit</button>
+            <button type="reset" class="btn orange waves-effect">Reset</button>
+        </div>
+        <?php echo Form::close(); ?>
+
+    </div>
+    <!-- end of edit_stud modal -->
+    
+    <!-- del_stud modal -->
+    <div class="modal modal-fixed-footer" id="del_stud">
+        <div class="modal-content">
+            <h2>Delete A Student</h2>
+            <div class="modal_body">
+                <?php echo Form::open(array('url' => 'del_stud')); ?>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" name="id">
+                            <label for="id">Enter Student ID</label>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn orange waves-effect space">Submit</button>
+            <button type="reset" class="btn orange waves-effect">Reset</button>
+        </div>
+        <?php echo Form::close(); ?>
+
+    </div>
+    <!-- end of del_stud modal -->
+    
+    <!-- add_co modal -->
+    <div class="modal modal-fixed-footer" id="add_co">
+        <div class="modal-content">
+            <h2>Add A Course</h2>
+            <?php echo Form::open(array('url' => 'add_co')); ?>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" name="name">
+                        <label for="name">Name of Course</label>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" name="scode">
+                            <label for="enid">Subject Code</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="txtarea1" class="materialize-textarea" name="desc"></textarea>
+                            <label for="txtarea1">Description</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <select name="sem">
+                                <option value="" disabled selected>Choose A Sem</option>
+                                <option value="1">I</option>
+                                <option value="2">II</option>
+                                <option value="3">III</option>
+                                <option value="4">IV</option>
+                                <option value="5">V</option>
+                                <option value="6">VI</option>
+                                <option value="7">VII</option>
+                                <option value="8">VIII</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <select name="branch">
+                                <option value="" disabled selected>Choose A Branch</option>
+                                <option value="CSE">CSE</option>
+                                <option value="ECE">ECE</option>
+                                <option value="ME">ME</option>
+                                <option value="CIVIL">CIVIL</option>
+                                <option value="EE">EE</option>
+                                <option value="BBA">BBA</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn orange waves-effect space">Submit</button>
+            <button type="reset" class="btn orange waves-effect">Reset</button>
+        </div>
+        <?php echo Form::close(); ?>
+
+    </div>
+    <!-- end of add_co modal -->
+    
+    <!-- edit_co modal -->
+    <div class="modal modal-fixed-footer" id="edit_co">
+        <div class="modal-content">
+            <h2>Edit A Course</h2>
+            <div class="modal_body">
+                <?php echo Form::open(array('url' => 'edit_co')); ?>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" name="id">
+                            <label for="id">Enter Subject Code</label>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn orange waves-effect space">Submit</button>
+            <button type="reset" class="btn orange waves-effect">Reset</button>
+        </div>
+        <?php echo Form::close(); ?>
+
+    </div>
+    <!-- end of edit_co modal -->
+    
+    <!-- del_co modal -->
+    <div class="modal modal-fixed-footer" id="del_co">
+        <div class="modal-content">
+            <h2>Delete A Course</h2>
+            <div class="modal_body">
+                <?php echo Form::open(array('url' => 'del_co')); ?>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" name="id">
+                            <label for="id">Enter Subject Code</label>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn orange waves-effect space">Submit</button>
+            <button type="reset" class="btn orange waves-effect">Reset</button>
+        </div>
+        <?php echo Form::close(); ?>
+
+    </div>
+    <!-- end of del_co modal -->
+    
     <!-- add_facu modal -->
     <div class="modal modal-fixed-footer" id="add_facu">
         <div class="modal-content">
-            <h2>Add A Student</h2>
+            <h2>Add A Faculty</h2>
             <?php echo Form::open(array('url' => 'add_facu')); ?>
 
                 <div class="row">
@@ -228,13 +387,61 @@
                 </div>
         </div>
         <div class="modal-footer">
-            <button type="reset" class="btn orange waves-effect">Reset</button>
             <button type="submit" class="btn orange waves-effect space">Submit</button>
+            <button type="reset" class="btn orange waves-effect">Reset</button>
         </div>
         <?php echo Form::close(); ?>
 
     </div>
     <!-- end of add_facu modal -->
+    
+    <!-- edit_facu modal -->
+    <div class="modal modal-fixed-footer" id="edit_facu">
+        <div class="modal-content">
+            <h2>Edit A Faculty</h2>
+            <div class="modal_body">
+                <?php echo Form::open(array('url' => 'edit_facu')); ?>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" name="id">
+                            <label for="id">Enter Student ID</label>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn orange waves-effect space">Submit</button>
+            <button type="reset" class="btn orange waves-effect">Reset</button>
+        </div>
+        <?php echo Form::close(); ?>
+
+    </div>
+    <!-- end of edit_facu modal -->
+    
+    <!-- del_facu modal -->
+    <div class="modal modal-fixed-footer" id="del_facu">
+        <div class="modal-content">
+            <h2>Delete A Faculty</h2>
+            <div class="modal_body">
+                <?php echo Form::open(array('url' => 'del_facu')); ?>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" name="id">
+                            <label for="id">Enter Student ID</label>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn orange waves-effect space">Submit</button>
+            <button type="reset" class="btn orange waves-effect">Reset</button>
+        </div>
+        <?php echo Form::close(); ?>
+
+    </div>
+    <!-- end of del_facu modal -->
     
     <!-- Start of padded div wrapper -->
     <div id="padd">

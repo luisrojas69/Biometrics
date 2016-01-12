@@ -39,4 +39,9 @@ class RecordController extends Controller
         faculty::create($request->all());
         return redirect('/dashboard');
     }
+    
+    public function edit()
+    {
+        return 'working';
+    }
 }
