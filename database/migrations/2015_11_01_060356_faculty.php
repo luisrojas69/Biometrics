@@ -17,6 +17,8 @@ class Faculty extends Migration
             $table->string('name');
             $table->string('fid',9)->unique();
             $table->string('email')->unique();
+            $table->string('sem');
+            $table->string('branch');
             $table->timestamps();
         });
     }

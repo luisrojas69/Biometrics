@@ -14,12 +14,12 @@ class Subject extends Migration
     {
         Schema::create('subjects', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('sid')->unique();
+            $table->string('code')->unique();
             $table->string('desc');
             $table->string('name');
             $table->string('sem');
             $table->string('branch');
-            $table->string('year');
+            //$table->string('year');
             $table->timestamps();
         });
     }

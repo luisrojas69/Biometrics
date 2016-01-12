@@ -43,7 +43,7 @@
                             <div class="collapsible-body">
                                 <ul>
                                     <li><a class="modal-trigger" href="#add_stud">ADD</a></li>
-                                    <li><a href="#">EDIT</a></li>
+                                    <li><a class="modal-trigger" href="#edit_stud">EDIT</a></li>
                                     <li><a href="#">DELETE</a></li>
                                 </ul>
                             </div>
@@ -165,6 +165,26 @@
         {!! Form::close() !!}
     </div>
     <!-- end of add_stud modal -->
+    
+    <!-- edit_stud modal -->
+    <div class="modal modal-fixed-footer" id="edit_stud">
+        <div class="modal-content">
+            <h2>Edit A Student</h2>
+            <div class="modal_body">
+                {!! Form::open(array('url' => 'edit_stud')) !!}
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" name="id">
+                            <label for="id">Enter Student ID</label>
+                        </div>
+                    </div>
+                {!! Form::close() !!}
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+    <!-- end of edit_stud modal -->
     
     <!-- add_facu modal -->
     <div class="modal modal-fixed-footer" id="add_facu">

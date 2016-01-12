@@ -29,13 +29,14 @@ class RecordController extends Controller
     
     public function add_stud(Request $request)
     {
-        $input = $request->all();
-        return $input;
+        student::create($request->all());
+        return redirect('/dashboard');
     }
     
     public function add_facu(Request $request)
     {
-        $input = $request->all();
-        return $input;
+        //$input = $request->all();
+        faculty::create($request->all());
+        return redirect('/dashboard');
     }
 }
