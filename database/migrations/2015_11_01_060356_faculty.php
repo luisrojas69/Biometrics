@@ -12,7 +12,7 @@ class Faculty extends Migration
      */
     public function up()
     {
-        Schema::create('facultys', function (Blueprint $table) {
+        Schema::create('faculties', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('fid',9)->unique();

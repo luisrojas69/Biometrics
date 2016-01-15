@@ -8,8 +8,7 @@ class student extends Model
 {
     protected $fillable=[
         'name',
-        'rollno',
-        'key',
+        'enid',
         'sem',
         'branch'
         ];

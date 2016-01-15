@@ -15,8 +15,7 @@ class Student extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('rollno',8)->unique();
-            $table->string('key',8);
+            $table->string('enid',8)->unique();
             $table->string('sem');
             $table->string('branch');
             $table->timestamps();

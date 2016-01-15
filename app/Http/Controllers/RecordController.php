@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\student;
+use App\faculty;
+use App\subject;
 
 class RecordController extends Controller
 {
@@ -33,9 +36,14 @@ class RecordController extends Controller
         return redirect('/dashboard');
     }
     
+    public function add_co(Request $request)
+    {
+        subject::create($request->all());
+        return redirect('/dashboard');
+    }
+    
     public function add_facu(Request $request)
     {
-        //$input = $request->all();
         faculty::create($request->all());
         return redirect('/dashboard');
     }

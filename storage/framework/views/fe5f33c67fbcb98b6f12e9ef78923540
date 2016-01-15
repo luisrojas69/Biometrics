@@ -110,14 +110,15 @@
     
     <ul id="dropdown1" class="dropdown-content">
         <li><a href="#">Settings</a></li>
-        <li><a href="{{ URL::to('home') }}">Logout</a></li>
+        <li><a href="<?php echo e(URL::to('home')); ?>">Logout</a></li>
     </ul>
     
     <!-- add_stud modal -->
     <div class="modal modal-fixed-footer" id="add_stud">
         <div class="modal-content">
             <h2>Add A Student</h2>
-            {!! Form::open(array('url' => 'add_stud')) !!}
+            <?php echo Form::open(array('url' => 'add_stud')); ?>
+
                 <div class="row">
                     <div class="input-field col s12">
                         <input type="text" name="name">
@@ -163,7 +164,8 @@
             <button type="submit" class="btn orange waves-effect space">Submit</button>
             <button type="reset" class="btn orange waves-effect">Reset</button>
         </div>
-        {!! Form::close() !!}
+        <?php echo Form::close(); ?>
+
     </div>
     <!-- end of add_stud modal -->
     
@@ -172,7 +174,8 @@
         <div class="modal-content">
             <h2>Edit A Student</h2>
             <div class="modal_body">
-                {!! Form::open(array('url' => 'edit_stud')) !!}
+                <?php echo Form::open(array('url' => 'edit_stud')); ?>
+
                     <div class="row">
                         <div class="input-field col s12">
                             <input type="text" name="id">
@@ -185,7 +188,8 @@
             <button type="submit" class="btn orange waves-effect space">Submit</button>
             <button type="reset" class="btn orange waves-effect">Reset</button>
         </div>
-        {!! Form::close() !!}
+        <?php echo Form::close(); ?>
+
     </div>
     <!-- end of edit_stud modal -->
     
@@ -194,7 +198,8 @@
         <div class="modal-content">
             <h2>Delete A Student</h2>
             <div class="modal_body">
-                {!! Form::open(array('url' => 'del_stud')) !!}
+                <?php echo Form::open(array('url' => 'del_stud')); ?>
+
                     <div class="row">
                         <div class="input-field col s12">
                             <input type="text" name="id">
@@ -207,7 +212,8 @@
             <button type="submit" class="btn orange waves-effect space">Submit</button>
             <button type="reset" class="btn orange waves-effect">Reset</button>
         </div>
-        {!! Form::close() !!}
+        <?php echo Form::close(); ?>
+
     </div>
     <!-- end of del_stud modal -->
     
@@ -215,7 +221,8 @@
     <div class="modal modal-fixed-footer" id="add_co">
         <div class="modal-content">
             <h2>Add A Course</h2>
-            {!! Form::open(array('url' => 'add_co')) !!}
+            <?php echo Form::open(array('url' => 'add_co')); ?>
+
                 <div class="row">
                     <div class="input-field col s12">
                         <input type="text" name="name">
@@ -267,7 +274,8 @@
             <button type="submit" class="btn orange waves-effect space">Submit</button>
             <button type="reset" class="btn orange waves-effect">Reset</button>
         </div>
-        {!! Form::close() !!}
+        <?php echo Form::close(); ?>
+
     </div>
     <!-- end of add_co modal -->
     
@@ -276,7 +284,8 @@
         <div class="modal-content">
             <h2>Edit A Course</h2>
             <div class="modal_body">
-                {!! Form::open(array('url' => 'edit_co')) !!}
+                <?php echo Form::open(array('url' => 'edit_co')); ?>
+
                     <div class="row">
                         <div class="input-field col s12">
                             <input type="text" name="id">
@@ -289,7 +298,8 @@
             <button type="submit" class="btn orange waves-effect space">Submit</button>
             <button type="reset" class="btn orange waves-effect">Reset</button>
         </div>
-        {!! Form::close() !!}
+        <?php echo Form::close(); ?>
+
     </div>
     <!-- end of edit_co modal -->
     
@@ -298,7 +308,8 @@
         <div class="modal-content">
             <h2>Delete A Course</h2>
             <div class="modal_body">
-                {!! Form::open(array('url' => 'del_co')) !!}
+                <?php echo Form::open(array('url' => 'del_co')); ?>
+
                     <div class="row">
                         <div class="input-field col s12">
                             <input type="text" name="id">
@@ -311,7 +322,8 @@
             <button type="submit" class="btn orange waves-effect space">Submit</button>
             <button type="reset" class="btn orange waves-effect">Reset</button>
         </div>
-        {!! Form::close() !!}
+        <?php echo Form::close(); ?>
+
     </div>
     <!-- end of del_co modal -->
     
@@ -319,7 +331,8 @@
     <div class="modal modal-fixed-footer" id="add_facu">
         <div class="modal-content">
             <h2>Add A Faculty</h2>
-            {!! Form::open(array('url' => 'add_facu')) !!}
+            <?php echo Form::open(array('url' => 'add_facu')); ?>
+
                 <div class="row">
                     <div class="input-field col s12">
                         <input type="text" name="name">
@@ -377,7 +390,8 @@
             <button type="submit" class="btn orange waves-effect space">Submit</button>
             <button type="reset" class="btn orange waves-effect">Reset</button>
         </div>
-        {!! Form::close() !!}
+        <?php echo Form::close(); ?>
+
     </div>
     <!-- end of add_facu modal -->
     
@@ -386,7 +400,8 @@
         <div class="modal-content">
             <h2>Edit A Faculty</h2>
             <div class="modal_body">
-                {!! Form::open(array('url' => 'edit_facu')) !!}
+                <?php echo Form::open(array('url' => 'edit_facu')); ?>
+
                     <div class="row">
                         <div class="input-field col s12">
                             <input type="text" name="id">
@@ -399,7 +414,8 @@
             <button type="submit" class="btn orange waves-effect space">Submit</button>
             <button type="reset" class="btn orange waves-effect">Reset</button>
         </div>
-        {!! Form::close() !!}
+        <?php echo Form::close(); ?>
+
     </div>
     <!-- end of edit_facu modal -->
     
@@ -408,7 +424,8 @@
         <div class="modal-content">
             <h2>Delete A Faculty</h2>
             <div class="modal_body">
-                {!! Form::open(array('url' => 'del_facu')) !!}
+                <?php echo Form::open(array('url' => 'del_facu')); ?>
+
                     <div class="row">
                         <div class="input-field col s12">
                             <input type="text" name="id">
@@ -421,7 +438,8 @@
             <button type="submit" class="btn orange waves-effect space">Submit</button>
             <button type="reset" class="btn orange waves-effect">Reset</button>
         </div>
-        {!! Form::close() !!}
+        <?php echo Form::close(); ?>
+
     </div>
     <!-- end of del_facu modal -->
     
