@@ -110,7 +110,7 @@
     
     <ul id="dropdown1" class="dropdown-content">
         <li><a href="#">Settings</a></li>
-        <li><a href="{{ URL::to('home') }}">Logout</a></li>
+        <li><a href="{{ URL::to('/') }}">Logout</a></li>
     </ul>
     
     <!-- add_stud modal -->
