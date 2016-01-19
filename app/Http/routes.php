@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'LoginController@adminlogin');
+Route::get('/', 'LoginController@home');
 
 Route::post('/', 'LoginController@show');
 
@@ -19,7 +19,7 @@ Route::get('/newuser', 'LoginController@newuser');
 
 Route::post('/newuser', 'LoginController@shownew');
 
-Route::get('/home', 'LoginController@home');
+//Route::get('/home', 'LoginController@home');
 
 Route::get('/dashboard', 'LoginController@dash');
 
