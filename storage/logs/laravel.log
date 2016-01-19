@@ -8036,3 +8036,13 @@ Stack trace:
 #2 C:\Users\Aanand Vardhan\Desktop\Biometrics\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(107): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #3 C:\Users\Aanand Vardhan\Desktop\Biometrics\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #4 {main}  
+[2016-01-15 10:11:22] local.ERROR: exception 'InvalidArgumentException' with message 'Command "rollback" is not defined.
+
+Did you mean this?
+    migrate:rollback' in C:\Users\abhinavmathur96\Documents\GitHub\Biometrics\vendor\symfony\console\Application.php:549
+Stack trace:
+#0 C:\Users\abhinavmathur96\Documents\GitHub\Biometrics\vendor\symfony\console\Application.php(192): Symfony\Component\Console\Application->find('rollback')
+#1 C:\Users\abhinavmathur96\Documents\GitHub\Biometrics\vendor\symfony\console\Application.php(126): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 C:\Users\abhinavmathur96\Documents\GitHub\Biometrics\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(107): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 C:\Users\abhinavmathur96\Documents\GitHub\Biometrics\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 {main}  
