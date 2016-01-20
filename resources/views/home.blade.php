@@ -54,6 +54,7 @@
             {!! Form::close() !!}
         </div>
     </nav>
+    
     @if($errors->any())
         <div class="row container">
             <div class="col s12">
@@ -69,10 +70,19 @@
         </div>
     @endif
     
+    <a class="btn-floating btn-large waves-effect red lighten-2 modal-trigger hide-on-large-only" href="#loginmodal" style="position: absolute; left: 10px; top: 0px;"><i class="material-icons">people</i></a>
     <div id="loginmodal" class="modal">
         <div class="modal-content">
-            <div class="center-align"><i class="material-icons large">lock</i></div>
-            {!! Form::open(array('url' => 'login', 'accept-charset' => 'UTF-8')) !!}
+            <div class="row">
+                <!--<div class="col s12">-->
+                    <ul class="tabs">
+                        <li class="tab col s6"><a class="active" href="#adminlogin">Administrator</a></li>
+                        <li class="tab col s6"><a href="#faculogin">Faculty</a></li>
+                    </ul>
+                <!--</div>-->
+            </div>
+            <div id="adminlogin" class="col s12">
+                {!! Form::open(array('url' => 'login', 'accept-charset' => 'UTF-8')) !!}
                 <input name="_token" type="hidden" value="{{ csrf_token() }}">
                 <div class="row">
                     <div class="input-field col s12">
@@ -89,7 +99,9 @@
                 <div class="row">
                     <button type="submit" class="btn">OK</button>
                 </div>
-            {!! Form::close() !!}
+                {!! Form::close() !!}
+            </div>
+            <div id="faculogin" class="col s12">Faculty</div>
         </div>
     </div>
     

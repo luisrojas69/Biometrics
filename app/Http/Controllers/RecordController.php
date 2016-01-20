@@ -48,8 +48,9 @@ class RecordController extends Controller
         return redirect('/dashboard');
     }
     
-    public function edit()
+    public function edit(Request $request)
     {
-        return 'working';
+        $input = $request->get('id');
+        return $input;
     }
 }
