@@ -37,57 +37,57 @@
             </div>
             <ul id="slide-out" class="side-nav full fixed">
                 <li id="home"><a href="#">Home</a></li>
-                <li class="no-padding @yield('students')">
+                <li class="no-padding">
                     <ul class="collapsible collapsible-accordion">
                         <li>
                             <a class="collapsible-header"><i class="material-icons right">arrow_drop_down</i>Students</a>
                             <div class="collapsible-body">
                                 <ul>
                                     <li id="add_stud"><a href="#">ADD</a></li>
-                                    <li><a href="#">EDIT</a></li>
-                                    <li><a href="#">DELETE</a></li>
+                                    <li id="edit_stud"><a href="#">EDIT</a></li>
+                                    <li id="del_stud"><a href="#">DELETE</a></li>
                                 </ul>
                             </div>
                         </li>
                     </ul>
                 </li>
-                <li class="no-padding @yield('courses')">
+                <li class="no-padding">
                     <ul class="collapsible collapsible-accordion">
                         <li>
                             <a class="collapsible-header"><i class="material-icons right">arrow_drop_down</i>Courses</a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="#">ADD</a></li>
-                                    <li><a href="#">EDIT</a></li>
-                                    <li><a href="#">DELETE</a></li>
+                                    <li id="add_co"><a href="#">ADD</a></li>
+                                    <li id="edit_co"><a href="#">EDIT</a></li>
+                                    <li id="del_co"><a href="#">DELETE</a></li>
                                 </ul>
                             </div>
                         </li>
                     </ul>
                 </li>
-                <li class="no-padding @yield('teachers')">
+                <li class="no-padding">
                     <ul class="collapsible collapsible-accordion">
                         <li>
                             <a class="collapsible-header"><i class="material-icons right">arrow_drop_down</i>Teachers</a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="#">ADD</a></li>
-                                    <li><a href="#">EDIT</a></li>
-                                    <li><a href="#">DELETE</a></li>
+                                    <li id="add_facu"><a href="#">ADD</a></li>
+                                    <li id="edit_facu"><a href="#">EDIT</a></li>
+                                    <li id="del_facu"><a href="#">DELETE</a></li>
                                 </ul>
                             </div>
                         </li>
                     </ul>
                 </li>
-                <li class="no-padding @yield('view')">
+                <li class="no-padding">
                     <ul class="collapsible collapsible-accordion">
                         <li>
                             <a class="collapsible-header"><i class="material-icons right">arrow_drop_down</i>View Information</a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="#">Students</a></li>
-                                    <li><a href="#">Teachers</a></li>
-                                    <li><a href="#">Courses</a></li>
+                                    <li id="view_stud"><a href="#">Students</a></li>
+                                    <li id="view_facu"><a href="#">Teachers</a></li>
+                                    <li id="view_co"><a href="#">Courses</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -112,6 +112,24 @@
         <li><a href="#">Settings</a></li>
         <li><a href="{{ URL::to('/') }}">Logout</a></li>
     </ul>
+    
+    <div id="upload">
+        <div id="search" class="row">
+            <div class="container">
+                <form action="#">
+                    <div class="file-field input-field" id="file">
+                        <div class="btn white black-text waves-effect waves-orange">
+                            <span>File</span>
+                            <input type="file">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     
     <div id="padd"></div>
     
@@ -142,7 +160,93 @@
                 });
             });
             
-            $('select').material_select();
+            $('#edit_stud').click(function() {
+                if(elem) {
+                    elem.removeClass('active');
+                }
+                elem = $(this);
+                elem.addClass('active');
+                $.get('edit_stud', function(data) {
+                    $('#padd').html(data);
+                });
+            });
+            
+            $('#del_stud').click(function() {
+                if(elem) {
+                    elem.removeClass('active');
+                }
+                elem = $(this);
+                elem.addClass('active');
+                $.get('del_stud', function(data) {
+                    $('#padd').html(data);
+                });
+            });
+            
+            $('#add_co').click(function() {
+                if(elem) {
+                    elem.removeClass('active');
+                }
+                elem = $(this);
+                elem.addClass('active');
+                $.get('add_co', function(data) {
+                    $('#padd').html(data);
+                });
+            });
+            
+            $('#edit_co').click(function() {
+                if(elem) {
+                    elem.removeClass('active');
+                }
+                elem = $(this);
+                elem.addClass('active');
+                $.get('edit_co', function(data) {
+                    $('#padd').html(data);
+                });
+            });
+            
+            $('#del_co').click(function() {
+                if(elem) {
+                    elem.removeClass('active');
+                }
+                elem = $(this);
+                elem.addClass('active');
+                $.get('del_co', function(data) {
+                    $('#padd').html(data);
+                });
+            });
+            
+            $('#add_facu').click(function() {
+                if(elem) {
+                    elem.removeClass('active');
+                }
+                elem = $(this);
+                elem.addClass('active');
+                $.get('add_facu', function(data) {
+                    $('#padd').html(data);
+                });
+            });
+            
+            $('#edit_facu').click(function() {
+                if(elem) {
+                    elem.removeClass('active');
+                }
+                elem = $(this);
+                elem.addClass('active');
+                $.get('edit_facu', function(data) {
+                    $('#padd').html(data);
+                });
+            });
+            
+            $('#del_facu').click(function() {
+                if(elem) {
+                    elem.removeClass('active');
+                }
+                elem = $(this);
+                elem.addClass('active');
+                $.get('del_facu', function(data) {
+                    $('#padd').html(data);
+                });
+            });
         });
         
         $('.button-collapse').sideNav();
