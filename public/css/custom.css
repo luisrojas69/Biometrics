@@ -23,7 +23,7 @@ i.full {
     }
 }
 
-#padd {
+#padd, #upload {
     padding-left: 250px;
     padding-top: 5px;
 }
