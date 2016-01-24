@@ -1,3 +1,4 @@
+<div>
 <div id="search" class="row">
     <div class="container">
         <form action="#">
@@ -29,4 +30,5 @@
             <p class="flow-text center-align">Courses Running<br>245</p>
         </div>
     </div>
+</div>
 </div>

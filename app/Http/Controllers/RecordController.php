@@ -26,7 +26,7 @@ class RecordController extends Controller
         }
         else
         {
-            return redirect('/home');
+            return redirect('/index');
         }
     }
     
@@ -46,11 +46,5 @@ class RecordController extends Controller
     {
         faculty::create($request->all());
         return redirect('/dashboard');
-    }
-    
-    public function ajax() {
-        if (Request::ajax()) {
-            return view('admin.test');
-        }
     }
 }

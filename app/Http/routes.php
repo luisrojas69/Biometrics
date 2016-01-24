@@ -30,6 +30,12 @@ Route::get('/faculty', 'LoginController@facu');
 
 Route::post('/att', 'RecordController@index');
 
+Route::get('/add_stud', function() {
+    if(Request::ajax()) {
+        return view('admin.add_stud');
+    }
+});
+
 Route::post('/add_stud', 'RecordController@add_stud');
 
 Route::post('/add_facu', 'RecordController@add_facu');
@@ -42,9 +48,8 @@ Route::get('/course', function() {
     return view('admin.course');
 });
 
-Route::get('/getRequest', function() {
+Route::get('/home', function() {
     if(Request::ajax()) {
-        return view('admin.test');
+        return view('admin.home');
     }
 });
-//'<h2>getRequest working</h2>'

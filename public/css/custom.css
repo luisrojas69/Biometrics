@@ -26,7 +26,6 @@ i.full {
 #padd {
     padding-left: 250px;
     padding-top: 5px;
-    background-color: #F5F5F5;
 }
 
 @media only screen and (max-width : 992px) {

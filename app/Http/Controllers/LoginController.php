@@ -38,7 +38,7 @@ class LoginController extends Controller
     
     public function home()
     {
-        return view('home');
+        return view('index');
     }
     
     public function dash()
