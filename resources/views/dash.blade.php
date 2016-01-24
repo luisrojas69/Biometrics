@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Biometrics - Admin Dashboard">
     <meta name="author" content="AAA">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <title>Admin Dashboard</title>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -172,11 +173,12 @@
         <div class="modal-content">
             <h2>Edit A Student</h2>
             <div class="modal_body">
-                {!! Form::open(array('url' => 'edit_stud')) !!}
+                {!! Form::open(array('id'=>'edit_student_submit','url' =>'','action'=>'#')) !!}
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="row">
                         <div class="input-field col s12">
-                            <input type="text" name="id">
-                            <label for="id">Enter Student ID</label>
+                            <input type="text" name="id_edit_student" id="id_edit_student">
+                            <label for="id_edit_student">Enter Student ID</label>
                         </div>
                     </div>
             </div>
@@ -197,7 +199,7 @@
                 {!! Form::open(array('url' => 'del_stud')) !!}
                     <div class="row">
                         <div class="input-field col s12">
-                            <input type="text" name="id">
+                            <input type="text" name="id_del_student">
                             <label for="id">Enter Student ID</label>
                         </div>
                     </div>
@@ -279,7 +281,7 @@
                 {!! Form::open(array('url' => 'edit_co')) !!}
                     <div class="row">
                         <div class="input-field col s12">
-                            <input type="text" name="id">
+                            <input type="text" name="id_edit_co">
                             <label for="id">Enter Subject Code</label>
                         </div>
                     </div>
@@ -301,7 +303,7 @@
                 {!! Form::open(array('url' => 'del_co')) !!}
                     <div class="row">
                         <div class="input-field col s12">
-                            <input type="text" name="id">
+                            <input type="text" name="id_del_co">
                             <label for="id">Enter Subject Code</label>
                         </div>
                     </div>
@@ -389,7 +391,7 @@
                 {!! Form::open(array('url' => 'edit_facu')) !!}
                     <div class="row">
                         <div class="input-field col s12">
-                            <input type="text" name="id">
+                            <input type="text" name="id_edit_facu">
                             <label for="id">Enter Student ID</label>
                         </div>
                     </div>
@@ -411,7 +413,7 @@
                 {!! Form::open(array('url' => 'del_facu')) !!}
                     <div class="row">
                         <div class="input-field col s12">
-                            <input type="text" name="id">
+                            <input type="text" name="id_del_facu">
                             <label for="id">Enter Student ID</label>
                         </div>
                     </div>
@@ -464,6 +466,12 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="js/materialize.min.js"></script>
     <script type="text/javascript">
+        $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+        
         $(".button-collapse").sideNav();
         $('a#toggle_search').click(function()
                                   {
@@ -476,6 +484,33 @@
         });
         $('.modal-trigger').leanModal();
         $('select').material_select();
+        
+        
+        $('#edit_student_submit').submit(function() {
+            var id = $('#id_edit_student').val();
+            
+            $.ajax({
+                url: "edit_stud",
+                type: "POST",
+                beforeSend: function (xhr) {
+            var token = $('meta[name="csrf_token"]').attr('content');
+
+            if (token) {
+                  return xhr.setRequestHeader('X-CSRF-TOKEN', token);
+            }
+        },
+                data: {idtest:'test'},
+                success: function(data) {
+                    alert(data);
+                }, error: function() {
+                    alert('error');
+                }
+            })
+            
+            /*$.post('edit_stud', {id:id}, function(data) {
+                $('#modal_body').html(data);
+            });*/
+        })
     </script>
 </body>
 </html>

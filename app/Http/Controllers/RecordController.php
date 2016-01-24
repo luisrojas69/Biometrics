@@ -50,7 +50,17 @@ class RecordController extends Controller
     
     public function edit(Request $request)
     {
-        $input = $request->get('id');
-        return $input;
+        if(Request::ajax()) {
+            /*$input = $request->get('id');
+            $data = DB::table('students')->where('name')
+            return View::make('edit_form');
+        }
+        return Response::error('404');*/
+            return Response::json(Request::all());
+        }
+        else
+        {
+            return 'not an ajax call';
+        }
     }
 }

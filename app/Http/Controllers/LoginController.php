@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\student;
 use App\Http\Requests;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 class LoginController extends Controller
 {
@@ -48,5 +49,13 @@ class LoginController extends Controller
     public function facu()
     {
         return view('facu');
+    }
+    
+    public function ajaxrequest(Request $request)
+    {
+        if ($request->ajax()) {
+            return 'ajax request working';
+        }
+        return view('home');
     }
 }

@@ -36,3 +36,9 @@ Route::post('/add_facu', 'RecordController@add_facu');
 Route::post('/edit_stud', 'RecordController@edit');
 
 Route::post('/add_co','RecordController@add_co');
+
+Route::get('/ajaxpage', function() {
+    return view ('ajax');
+});
+
+Route::get('/ajaxrequest', 'LoginController@ajax');

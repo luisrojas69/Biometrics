@@ -16,7 +16,7 @@ class Student extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('enid',8)->unique();
-            $table->string('sem');
+            $table->integer('sem');
             $table->string('branch');
             $table->timestamps();
         });

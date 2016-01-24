@@ -14,37 +14,37 @@ class studentsTableSeeder extends Seeder
     {
         DB::table('students')->insert([
             'name' => 'Abhinav Mathur',
-            'rollno' => '14CSU009',
-            'key' => '12345',
-            'sem' => 'III',
+            'enid' => '14CSU009',
+            'sem' => '3',
             'branch' => 'CSE',
+            'updated_at' => Carbon::now(),
             'created_at' => Carbon::now(),
         ]);
         
         DB::table('students')->insert([
             'name' => 'Aanand Vardhan',
-            'rollno' => '14CSU004',
-            'key' => '67890',
-            'sem' => 'IV',
+            'enid' => '14CSU004',
+            'sem' => '4',
             'branch' => 'ECE',
+            'updated_at' => Carbon::now(),
             'created_at' => Carbon::now(),
         ]);
         
         DB::table('students')->insert([
             'name' => 'Abhay Abraham',
-            'rollno' => '14CSU008',
-            'key' => '54321',
-            'sem' => 'II',
+            'enid' => '14CSU008',
+            'sem' => '2',
             'branch' => 'ME',
+            'updated_at' => Carbon::now(),
             'created_at' => Carbon::now(),
         ]);
         
         DB::table('students')->insert([
             'name' => 'Aashish Sharma',
-            'rollno' => '14CSU005',
-            'key' => '09876',
-            'sem' => 'VI',
+            'enid' => '14CSU005',
+            'sem' => '6',
             'branch' => 'CIVIL',
+            'updated_at' => Carbon::now(),
             'created_at' => Carbon::now(),
         ]);
     }
