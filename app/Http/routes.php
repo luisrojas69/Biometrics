@@ -19,7 +19,7 @@ Route::get('/newuser', 'LoginController@newuser');
 
 Route::post('/newuser', 'LoginController@shownew');
 
-Route::get('/dashboard', function() {
+Route::post('/login', function() {
     return view('admin.admin_master');
 });
 
@@ -98,3 +98,11 @@ Route::get('/home', function() {
         return view('admin.home');
     }
 });
+
+Route::post('post_req', 'RecordController@post');
+
+/*Route::post('/post_req', function() {
+    if(Request::ajax()) {
+        return Response::json(Request::all());
+    }
+});*/

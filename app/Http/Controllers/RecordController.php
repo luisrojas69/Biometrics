@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\student;
 use App\faculty;
 use App\subject;
+use Illuminate\Support\Facades\DB;
 
 class RecordController extends Controller
 {
@@ -46,5 +47,13 @@ class RecordController extends Controller
     {
         faculty::create($request->all());
         return redirect('/dashboard');
+    }
+    
+    public function post(Request $request)
+    {
+        if($request->ajax()) {
+            $student = DB::table('students')->select('name')->where('enid','=',$request->get('id'))->get();
+            return view('admin.edit_test', ['name' => $student[0]->name]);
+        }
     }
 }
