@@ -37,7 +37,7 @@
                 </ul>
             </div>
             <ul id="slide-out" class="side-nav full fixed">
-                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Home</a></li>
                 <li class="no-padding">
                     <ul class="collapsible collapsible-accordion">
                         <li>

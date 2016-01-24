@@ -21,13 +21,14 @@ Route::post('/newuser', 'LoginController@shownew');
 
 //Route::get('/home', 'LoginController@home');
 
-Route::get('/dashboard', 'LoginController@dash');
+//Change back to LoginController@dash
+Route::get('/dashboard', function() {
+    return view('admin.admin_master');
+});
 
 Route::get('/faculty', 'LoginController@facu');
 
 Route::post('/att', 'RecordController@index');
-
-Route::post('/login', 'LoginController@dash');
 
 Route::post('/add_stud', 'RecordController@add_stud');
 
@@ -37,8 +38,13 @@ Route::post('/edit_stud', 'RecordController@edit');
 
 Route::post('/add_co','RecordController@add_co');
 
-Route::get('/ajaxpage', function() {
-    return view ('ajax');
+Route::get('/course', function() {
+    return view('admin.course');
 });
 
-Route::get('/ajaxrequest', 'LoginController@ajax');
+Route::get('/getRequest', function() {
+    if(Request::ajax()) {
+        return view('admin.test');
+    }
+});
+//'<h2>getRequest working</h2>'

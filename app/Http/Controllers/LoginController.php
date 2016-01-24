@@ -43,19 +43,11 @@ class LoginController extends Controller
     
     public function dash()
     {
-        return view('dash');
+        return view('admin.dash');
     }
     
     public function facu()
     {
-        return view('facu');
-    }
-    
-    public function ajaxrequest(Request $request)
-    {
-        if ($request->ajax()) {
-            return 'ajax request working';
-        }
-        return view('home');
+        return view('faculty.facu');
     }
 }

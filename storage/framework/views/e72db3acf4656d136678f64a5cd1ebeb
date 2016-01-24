@@ -38,7 +38,7 @@
             </div>
             <ul id="slide-out" class="side-nav full fixed">
                 <li><a href="#">Home</a></li>
-                <li class="active no-padding">
+                <li class="no-padding">
                     <ul class="collapsible collapsible-accordion">
                         <li>
                             <a class="collapsible-header"><i class="material-icons right">arrow_drop_down</i>Students</a>

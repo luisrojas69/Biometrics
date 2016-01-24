@@ -9,7 +9,7 @@
     <meta name="description" content="NCU Biometrics - Dashboard">
     <meta name="author" content="AAA">
 
-    <title>Dashboard</title>
+    <title>Welcome</title>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
