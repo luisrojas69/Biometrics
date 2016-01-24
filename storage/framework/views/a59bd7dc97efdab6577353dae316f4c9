@@ -84,7 +84,7 @@
                 <!--</div>-->
             </div>
             <div id="adminlogin" class="col s12">
-                <?php echo Form::open(array('url' => 'login', 'accept-charset' => 'UTF-8')); ?>
+                <?php echo Form::open(array('url' => 'dashboard', 'accept-charset' => 'UTF-8')); ?>
 
                 <input name="_token" type="hidden" value="<?php echo e(csrf_token()); ?>">
                 <div class="row">

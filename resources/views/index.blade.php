@@ -82,7 +82,7 @@
                 <!--</div>-->
             </div>
             <div id="adminlogin" class="col s12">
-                {!! Form::open(array('url' => 'login', 'accept-charset' => 'UTF-8')) !!}
+                {!! Form::open(array('url' => 'dashboard', 'accept-charset' => 'UTF-8')) !!}
                 <input name="_token" type="hidden" value="{{ csrf_token() }}">
                 <div class="row">
                     <div class="input-field col s12">

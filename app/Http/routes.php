@@ -19,7 +19,7 @@ Route::get('/newuser', 'LoginController@newuser');
 
 Route::post('/newuser', 'LoginController@shownew');
 
-Route::get('/dashboard', function() {
+Route::post('/dashboard', function() {
     return view('admin.admin_master');
 });
 
