@@ -47,28 +47,30 @@
     <div class="row hide-on-med-and-down"></div>
     <nav class="container">
         <div class="nav-wrapper">
-            {!! Form::open(array('url' => 'att', 'accept-charset' => 'UTF-8')) !!}
+            <?php echo Form::open(array('url' => 'att', 'accept-charset' => 'UTF-8')); ?>
+
                 <div class="input-field">
                     <input name="roll" id="search" type="search" placeholder="Enter Roll Number" length="8" required>
                 </div>
-            {!! Form::close() !!}
+            <?php echo Form::close(); ?>
+
         </div>
     </nav>
     
-    @if($errors->any())
+    <?php if($errors->any()): ?>
         <div class="row container">
             <div class="col s12">
                 <div class="panel hoverable white darken-1">
                     <h3 class="center-align flow-text">OH SNAP!</h3>
                     <ul class="flow-text">
-                    @foreach($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
+                    <?php foreach($errors->all() as $error): ?>
+                        <li><?php echo e($error); ?></li>
+                    <?php endforeach; ?>
                     </ul>
                 </div>
             </div>
         </div>
-    @endif
+    <?php endif; ?>
     
     <a class="btn-floating btn-large waves-effect red lighten-2 modal-trigger hide-on-large-only" href="#loginmodal" style="position: absolute; left: 10px; top: 0px;"><i class="material-icons">people</i></a>
     <div id="loginmodal" class="modal">
@@ -82,8 +84,9 @@
                 <!--</div>-->
             </div>
             <div id="adminlogin" class="col s12">
-                {!! Form::open(array('url' => 'dashboard', 'accept-charset' => 'UTF-8')) !!}
-                <input name="_token" type="hidden" value="{{ csrf_token() }}">
+                <?php echo Form::open(array('url' => 'dashboard', 'accept-charset' => 'UTF-8')); ?>
+
+                <input name="_token" type="hidden" value="<?php echo e(csrf_token()); ?>">
                 <div class="row">
                     <div class="input-field col s12">
                         <input type="text" length="10" id="uname">
@@ -99,7 +102,8 @@
                 <div class="row">
                     <button type="submit" class="btn">OK</button>
                 </div>
-                {!! Form::close() !!}
+                <?php echo Form::close(); ?>
+
             </div>
             <div id="faculogin" class="col s12">Faculty</div>
         </div>
