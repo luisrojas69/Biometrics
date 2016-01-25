@@ -1,24 +1,23 @@
-<h3>Hello <?php echo e($student[0]->name); ?> </h3>
+<h3>Hello {{$student[0]->name}} </h3>
 
-<!--<div class="container">-->
-<?php echo Form::open(array('url' => 'add_stud')); ?>
-
+<div class="container">
+{!! Form::open(array('url' => 'edit_stud')) !!}
     <div class="row">
         <div class="input-field col s12">
-            <input type="text" name="name" value="<?php echo e($student[0]->name); ?>">
+            <input type="text" name="name" value="{{$student[0]->name}}">
             <label for="name">Name of Student</label>
         </div>
     </div>
         <div class="row">
             <div class="input-field col s12">
-                <input type="text" name="enid" value="<?php echo e($student[0]->enid); ?>">
+                <input type="text" name="enid" value="{{$student[0]->enid}}">
                 <label for="enid">Enrollment Key</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                 <select name="sem">
-                    <option value="<?php echo e($student[0]->sem); ?>" disabled selected><?php echo e($student[0]->sem); ?></option>
+                    <option value="{{$student[0]->sem}}" disabled selected>{{$student[0]->sem}}</option>
                     <option value="1">I</option>
                     <option value="2">II</option>
                     <option value="3">III</option>
@@ -33,7 +32,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <select name="branch">
-                    <option value="<?php echo e($student[0]->branch); ?>" disabled selected><?php echo e($student[0]->branch); ?></option>
+                    <option value="{{$student[0]->branch}}" disabled selected>{{$student[0]->branch}}</option>
                     <option value="CSE">CSE</option>
                     <option value="ECE">ECE</option>
                     <option value="ME">ME</option>
@@ -43,13 +42,12 @@
                 </select>
             </div>
         </div>
-    <!--</div>-->
+    </div>
     <div class="row center-align">
         <button type="submit" class="btn orange waves-effect space">Submit</button>
         <button type="reset" class="btn orange waves-effect">Reset</button>
     </div>
-<?php echo Form::close(); ?>
-
+{!! Form::close() !!}
 <script type="text/javascript">
     $('select').material_select();
 </script>

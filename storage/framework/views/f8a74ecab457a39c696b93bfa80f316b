@@ -1,18 +1,18 @@
 <h3>Hello <?php echo e($student[0]->name); ?> </h3>
 
-<!--<div class="container">-->
-<?php echo Form::open(array('url' => 'add_stud')); ?>
+<div class="container">
+<?php echo Form::open(array('url' => 'edit_stud')); ?>
 
     <div class="row">
         <div class="input-field col s12">
-            <input type="text" name="name" value="<?php echo e($student[0]->name); ?>">
             <label for="name">Name of Student</label>
+            <input type="text" name="name" value="<?php echo e($student[0]->name); ?>">
         </div>
     </div>
         <div class="row">
             <div class="input-field col s12">
-                <input type="text" name="enid" value="<?php echo e($student[0]->enid); ?>">
                 <label for="enid">Enrollment Key</label>
+                <input type="text" name="enid" value="<?php echo e($student[0]->enid); ?>">
             </div>
         </div>
         <div class="row">
@@ -43,7 +43,7 @@
                 </select>
             </div>
         </div>
-    <!--</div>-->
+    </div>
     <div class="row center-align">
         <button type="submit" class="btn orange waves-effect space">Submit</button>
         <button type="reset" class="btn orange waves-effect">Reset</button>

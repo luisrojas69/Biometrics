@@ -40,7 +40,7 @@ class RecordController extends Controller
     public function add_co(Request $request)
     {
         subject::create($request->all());
-        return redirect('/dashboard');
+        return view('admin.admin_master');
     }
     
     public function add_facu(Request $request)
@@ -52,8 +52,13 @@ class RecordController extends Controller
     public function post(Request $request)
     {
         if($request->ajax()) {
-            $student = DB::table('students')->select('name')->where('enid','=',$request->get('id'))->get();
-            return view('admin.edit_test', ['name' => $student[0]->name]);
+            $student = DB::table('students')->select('*')->where('enid','=',$request->get('id'))->get();
+            return view('admin.edit_stud_form')->with(['student'=>$student]);
         }
+    }
+    
+    public function edit_stud(Request $request)
+    {
+        //
     }
 }

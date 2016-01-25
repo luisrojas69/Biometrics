@@ -35,7 +35,7 @@ Route::get('/add_stud', function() {
 
 Route::post('/add_stud', 'RecordController@add_stud');
 
-Route::post('/edit_stud', 'RecordController@edit');
+Route::post('/edit_stud', 'RecordController@edit_stud');
 
 Route::get('/edit_stud', function() {
     if(Request::ajax()) {
