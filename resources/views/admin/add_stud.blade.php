@@ -40,12 +40,12 @@
                 </select>
             </div>
         </div>
-    </div>
     <div class="row center-align">
         <button type="submit" class="btn orange waves-effect space">Submit</button>
         <button type="reset" class="btn orange waves-effect">Reset</button>
     </div>
 {!! Form::close() !!}
+</div>
 <script type="text/javascript">
     $('select').material_select();
 </script>

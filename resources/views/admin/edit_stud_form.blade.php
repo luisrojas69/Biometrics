@@ -5,13 +5,13 @@
     <div class="row">
         <div class="input-field col s12">
             <input type="text" name="name" value="{{$student[0]->name}}">
-            <label for="name">Name of Student</label>
+            <label for="name" class="active">Name of Student</label>
         </div>
     </div>
         <div class="row">
             <div class="input-field col s12">
                 <input type="text" name="enid" value="{{$student[0]->enid}}">
-                <label for="enid">Enrollment Key</label>
+                <label for="enid" class="active">Enrollment Key</label>
             </div>
         </div>
         <div class="row">
@@ -31,7 +31,7 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <select name="branch">
+                <select name="branch" value="{{$student[0]->branch}}" id="branch">
                     <option value="{{$student[0]->branch}}" disabled selected>{{$student[0]->branch}}</option>
                     <option value="CSE">CSE</option>
                     <option value="ECE">ECE</option>
@@ -42,12 +42,12 @@
                 </select>
             </div>
         </div>
-    </div>
-    <div class="row center-align">
-        <button type="submit" class="btn orange waves-effect space">Submit</button>
-        <button type="reset" class="btn orange waves-effect">Reset</button>
-    </div>
-{!! Form::close() !!}
+        <div class="row center-align">
+            <button type="submit" class="btn orange waves-effect space">Submit</button>
+            <button type="reset" class="btn orange waves-effect">Reset</button>
+        </div>
+    {!! Form::close() !!}
+</div>
 <script type="text/javascript">
     $('select').material_select();
 </script>

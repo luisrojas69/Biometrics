@@ -34,12 +34,12 @@ class RecordController extends Controller
     
     public function add_stud(Request $request)
     {
-        //student::create($request->all());
-        $input = Request::all();
+        $input = $request->all();
         $input['created_at'] = Carbon::now();
         $input['updated_at'] = Carbon::now();
         student::create($input);
-        return redirect('/dashboard');
+        return view('admin.admin_master');
+        //return redirect('/dashboard');
     }
     
     public function add_co(Request $request)
@@ -64,6 +64,14 @@ class RecordController extends Controller
     
     public function edit_stud(Request $request)
     {
-        //
+        DB::table('students')
+            ->where('enid', $request->get('enid'))
+            ->update(['name' => $request->get('name'),
+                      'enid' => $request->get('enid'),
+                      'sem' => $request->get('sem'),
+                      'branch' => $request->get('branch'),
+                      'updated_at' => Carbon::now()
+                     ]);
+        return view('admin.admin_master');
     }
 }
