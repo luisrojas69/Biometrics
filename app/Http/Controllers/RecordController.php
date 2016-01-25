@@ -9,6 +9,7 @@ use App\student;
 use App\faculty;
 use App\subject;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class RecordController extends Controller
 {
@@ -33,7 +34,11 @@ class RecordController extends Controller
     
     public function add_stud(Request $request)
     {
-        student::create($request->all());
+        //student::create($request->all());
+        $input = Request::all();
+        $input['created_at'] = Carbon::now();
+        $input['updated_at'] = Carbon::now();
+        student::create($input);
         return redirect('/dashboard');
     }
     
