@@ -18222,3 +18222,12 @@ Stack trace:
 #49 C:\Users\abhinavmathur96\Documents\GitHub\Biometrics\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(87): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #50 C:\Users\abhinavmathur96\Documents\GitHub\Biometrics\public\index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #51 {main}  
+[2016-01-26 06:59:31] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '(', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$'' in C:\Users\abhinavmathur96\Documents\GitHub\Biometrics\app\Http\Controllers\RecordController.php:67
+Stack trace:
+#0 {main}  
+[2016-01-26 06:59:43] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '(', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$'' in C:\Users\abhinavmathur96\Documents\GitHub\Biometrics\app\Http\Controllers\RecordController.php:67
+Stack trace:
+#0 {main}  
+[2016-01-26 07:00:12] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '(', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$'' in C:\Users\abhinavmathur96\Documents\GitHub\Biometrics\app\Http\Controllers\RecordController.php:67
+Stack trace:
+#0 {main}  

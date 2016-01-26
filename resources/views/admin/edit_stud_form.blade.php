@@ -1,3 +1,7 @@
+<script type="text/javascript">
+    $('select').material_select('destroy');
+</script>
+
 <h3>Hello {{$student[0]->name}} </h3>
 
 <div class="container">
@@ -10,36 +14,30 @@
     </div>
         <div class="row">
             <div class="input-field col s12">
-                <input type="text" name="enid" value="{{$student[0]->enid}}">
+                <input type="text" name="enid" value="{{$student[0]->enid}}" disabled>
                 <label for="enid" class="active">Enrollment Key</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <select name="sem">
-                    <option value="{{$student[0]->sem}}" disabled selected>{{$student[0]->sem}}</option>
-                    <option value="1">I</option>
-                    <option value="2">II</option>
-                    <option value="3">III</option>
-                    <option value="4">IV</option>
-                    <option value="5">V</option>
-                    <option value="6">VI</option>
-                    <option value="7">VII</option>
-                    <option value="8">VIII</option>
-                </select>
+                <?php echo Form::select('sem', array('1' => 'I',
+                                                     '2' => 'II',
+                                                     '3' => 'III',
+                                                     '4' => 'IV',
+                                                     '5' => 'V',
+                                                     '6' => 'VI',
+                                                     '7' => 'VII',
+                                                     '8' => 'VIII'), $student[0]->sem); ?>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <select name="branch" value="{{$student[0]->branch}}" id="branch">
-                    <option value="{{$student[0]->branch}}" disabled selected>{{$student[0]->branch}}</option>
-                    <option value="CSE">CSE</option>
-                    <option value="ECE">ECE</option>
-                    <option value="ME">ME</option>
-                    <option value="CIVIL">CIVIL</option>
-                    <option value="EE">EE</option>
-                    <option value="BBA">BBA</option>
-                </select>
+                <?php echo Form::select('branch', array('CSE' => 'CSE',
+                                                        'ECE' => 'ECE',
+                                                        'ME' => 'ME',
+                                                        'CIVIL' => 'CIVIL',
+                                                        'EE' => 'EE',
+                                                        'BBA' => 'BBA'), $student[0]->branch); ?>
             </div>
         </div>
         <div class="row center-align">
