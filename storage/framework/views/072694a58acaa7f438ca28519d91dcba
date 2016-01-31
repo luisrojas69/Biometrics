@@ -36,7 +36,7 @@
             data: {enid:enid},
             
             success: function(data) {
-                $('#modal-content').html(data);
+                $('.modal-content').html(data);
                 $('#modal1').openModal();
             }
         });

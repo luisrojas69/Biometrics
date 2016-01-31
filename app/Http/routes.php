@@ -44,6 +44,8 @@ Route::get('/edit_stud', function() {
     }
 });
 
+Route::post('post_req', 'RecordController@post');
+
 Route::get('/del_stud', function() {
     if(Request::ajax()) {
         return view('admin.del_stud');
@@ -88,6 +90,10 @@ Route::get('/edit_facu', function() {
     }
 });
 
+Route::post('/edit_facu_post', 'RecordController@edit_facu_post');
+
+Route::post('/edit_facu', 'RecordController@edit_facu');
+
 Route::get('/del_facu', function() {
     if(Request::ajax()) {
         return view('admin.del_facu');
@@ -103,8 +109,6 @@ Route::get('/home', function() {
         return view('admin.home');
     }
 });
-
-Route::post('post_req', 'RecordController@post');
 
 Route::get('/newpage', 'RecordController@newpage');
 

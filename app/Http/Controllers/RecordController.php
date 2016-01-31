@@ -44,36 +44,61 @@ class RecordController extends Controller
     
     public function add_co(Request $request)
     {
-        subject::create($request->all());
+        $input = $request->all();
+        $input['created_at'] = Carbon::now();
+        $input['updated_at'] = Carbon::now();
+        subject::create($input);
         return view('admin.admin_master');
     }
     
     public function add_facu(Request $request)
     {
-        faculty::create($request->all());
-        return redirect('/dashboard');
+        $input = $request->all();
+        $input['created_at'] = Carbon::now();
+        $input['updated_at'] = Carbon::now();
+        faculty::create($input);
+        return view('admin.admin_master');
+    }
+    
+    public function edit_facu_post(Request $request)
+    {
+        if($request->ajax())
+        {
+            $faculty = DB::table('faculties')
+                ->select('*')
+                ->where('id','=',$request->get('enid'))->get();
+            
+            return view('admin.edit_facu_form')
+                ->with(['faculty'=>$faculty]);
+        }
+    }
+    
+    public function edit_facu(Request $request)
+    {
+        if($request->ajax())
+        {
+            DB::table('faculties')
+                ->where('id', $request->get('enid'))
+                ->update(['name' => $request->get('name'),
+                          'sem' => $request->get('sem'),
+                          'branch' => $request->get('branch'),
+                          'updated_at' => Carbon::now()
+                         ]);
+            return view('admin.edit_facu');
+        }
     }
     
     public function post(Request $request)
     {
         if($request->ajax()) {
-            $student = DB::table('students')->select('*')->where('enid','=',$request->get('id'))->get();
-            return view('admin.edit_stud_form')->with(['student'=>$student]);
+            $student = DB::table('students')
+                ->select('*')
+                ->where('enid','=',$request->get('id'))->get();
+            
+            return view('admin.edit_stud_form')
+                ->with(['student'=>$student]);
         }
     }
-    
-    /*public function edit_stud(Request $request)
-    {
-        DB::table('students')
-            ->where('enid', $request->get('enid'))
-            ->update(['name' => $request->get('name'),
-                      'enid' => $request->get('enid'),
-                      'sem' => $request->get('sem'),
-                      'branch' => $request->get('branch'),
-                      'updated_at' => Carbon::now()
-                     ]);
-        return view('admin.admin_master');
-    }*/
     
     public function edit_stud(Request $request)
     {
@@ -94,9 +119,11 @@ class RecordController extends Controller
     {
         if($request->ajax())
         {
+            return $request->get('enid');
             $student = DB::table('students')
                 ->select('*')
                 ->where('enid','=',$request->get('enid'))->get();
+            
             return view('admin.del_conf')
                 ->with(['student' => $student]);
             /*return view('admin.edit_stud_form')
