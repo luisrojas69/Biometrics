@@ -62,7 +62,7 @@ class RecordController extends Controller
         }
     }
     
-    public function edit_stud(Request $request)
+    /*public function edit_stud(Request $request)
     {
         DB::table('students')
             ->where('enid', $request->get('enid'))
@@ -73,5 +73,54 @@ class RecordController extends Controller
                       'updated_at' => Carbon::now()
                      ]);
         return view('admin.admin_master');
+    }*/
+    
+    public function edit_stud(Request $request)
+    {
+        if($request->ajax())
+        {
+            DB::table('students')
+                ->where('enid', $request->get('enid'))
+                ->update(['name' => $request->get('name'),
+                          'sem' => $request->get('sem'),
+                          'branch' => $request->get('branch'),
+                          'updated_at' => Carbon::now()
+                         ]);
+            return view('admin.edit_stud');
+        }
+    }
+    
+    public function del_stud(Request $request)
+    {
+        if($request->ajax())
+        {
+            $student = DB::table('students')
+                ->select('*')
+                ->where('enid','=',$request->get('enid'))->get();
+            return view('admin.del_conf')
+                ->with(['student' => $student]);
+            /*return view('admin.edit_stud_form')
+                ->with(['student'=>$student]);*/
+        }
+    }
+    
+    public function del_final(Request $request)
+    {
+        if($request->ajax())
+        {
+            DB::table('students')
+                ->where('enid', '=', $request->get('enid'))
+                ->delete();
+        }
+    }
+    
+    public function newpage()
+    {
+        return view('newpage');
+    }
+    
+    public function newpost(Request $request)
+    {
+        return ($request->get('sem'));
     }
 }

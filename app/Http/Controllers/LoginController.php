@@ -41,11 +41,6 @@ class LoginController extends Controller
         return view('index');
     }
     
-    public function dash()
-    {
-        return view('admin.dash');
-    }
-    
     public function facu()
     {
         return view('faculty.facu');

@@ -50,6 +50,10 @@ Route::get('/del_stud', function() {
     }
 });
 
+Route::post('/del_stud', 'RecordController@del_stud');
+
+Route::post('/del_final', 'RecordController@del_final');
+
 Route::post('/add_co','RecordController@add_co');
 
 Route::get('/add_co', function() {
@@ -101,6 +105,10 @@ Route::get('/home', function() {
 });
 
 Route::post('post_req', 'RecordController@post');
+
+Route::get('/newpage', 'RecordController@newpage');
+
+Route::post('/newpage', 'RecordController@newpost');
 
 /*Route::post('/post_req', function() {
     if(Request::ajax()) {

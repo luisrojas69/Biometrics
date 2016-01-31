@@ -16,7 +16,6 @@
     </div>
 </div>
 <script type="text/javascript">
-    $('select').material_select();
     $('#edit_stud_form').submit(function() {
         var id = $('#id_edit_student').val();
         var token = $('#token').val();
