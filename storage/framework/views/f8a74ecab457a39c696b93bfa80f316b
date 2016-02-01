@@ -1,8 +1,12 @@
+<script type="text/javascript">
+    $('select').material_select();
+    //edit_stud
+</script>
 <h3>Hello <?php echo e($student[0]->name); ?> </h3>
 
 <div class="container">
-<?php echo Form::open(array('url' => 'edit_stud')); ?>
-
+    <form id="edit_final" method="post" action="#">
+        <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>" id="token">
     <div class="row">
         <div class="input-field col s12">
             <input type="text" name="name" value="<?php echo e($student[0]->name); ?>">
@@ -11,35 +15,32 @@
     </div>
         <div class="row">
             <div class="input-field col s12">
-                <input type="text" name="enid" value="<?php echo e($student[0]->enid); ?>">
+                <input type="text" name="enid" value="<?php echo e($student[0]->enid); ?>" disabled>
                 <label for="enid" class="active">Enrollment Key</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <select name="sem" value="<?php echo e($student[0]->sem); ?>" id="sem">
-                    <option value="<?php echo e($student[0]->sem); ?>" disabled selected><?php echo e($student[0]->sem); ?></option>
-                    <option value="1">I</option>
-                    <option value="2">II</option>
-                    <option value="3">III</option>
-                    <option value="4">IV</option>
-                    <option value="5">V</option>
-                    <option value="6">VI</option>
-                    <option value="7">VII</option>
-                    <option value="8">VIII</option>
+                <select name="sem">
+                    <option value="1" <?php if($student[0]->sem == '1'): ?>active selected <?php endif; ?>>I</option>
+                    <option value="2" <?php if($student[0]->sem == '2'): ?>active selected <?php endif; ?>>II</option>
+                    <option value="3" <?php if($student[0]->sem == '3'): ?>active selected <?php endif; ?>>III</option>
+                    <option value="4" <?php if($student[0]->sem == '4'): ?>active selected <?php endif; ?>>IV</option>
+                    <option value="5" <?php if($student[0]->sem == '5'): ?>active selected <?php endif; ?>>V</option>
+                    <option value="6" <?php if($student[0]->sem == '6'): ?>active selected <?php endif; ?>>VI</option>
+                    <option value="7" <?php if($student[0]->sem == '7'): ?>active selected <?php endif; ?>>VII</option>
+                    <option value="8" <?php if($student[0]->sem == '8'): ?>active selected <?php endif; ?>>VIII</option>
                 </select>
             </div>
-        </div>
-        <div class="row">
+
             <div class="input-field col s12">
-                <select name="branch" value="<?php echo e($student[0]->branch); ?>" id="branch">
-                    <option value="<?php echo e($student[0]->branch); ?>" disabled selected><?php echo e($student[0]->branch); ?></option>
-                    <option value="CSE">CSE</option>
-                    <option value="ECE">ECE</option>
-                    <option value="ME">ME</option>
-                    <option value="CIVIL">CIVIL</option>
-                    <option value="EE">EE</option>
-                    <option value="BBA">BBA</option>
+                <select name="branch">
+                    <option value="CSE" <?php if($student[0]->branch == 'CSE'): ?>active selected <?php endif; ?>>CSE</option>
+                    <option value="ECE" <?php if($student[0]->branch == 'ECE'): ?>active selected <?php endif; ?>>ECE</option>
+                    <option value="ME" <?php if($student[0]->branch == 'ME'): ?>active selected <?php endif; ?>>ME</option>
+                    <option value="CIVIL" <?php if($student[0]->branch == 'CIVIL'): ?>active selected <?php endif; ?>>CIVIL</option>
+                    <option value="EE" <?php if($student[0]->branch == 'EE'): ?>active selected <?php endif; ?>>EE</option>
+                    <option value="BBA" <?php if($student[0]->branch == 'BBA'): ?>active selected <?php endif; ?>>BBA</option>
                 </select>
             </div>
         </div>
@@ -47,9 +48,27 @@
             <button type="submit" class="btn orange waves-effect space">Submit</button>
             <button type="reset" class="btn orange waves-effect">Reset</button>
         </div>
-    <?php echo Form::close(); ?>
-
+    </form>
 </div>
+
 <script type="text/javascript">
-    $('select').material_select();
+    $('#edit_final').submit(function() {
+        var name = $('[name="name"]').val();
+        var enid = $('[name="enid"]').val();
+        var sem = $('[name="sem"]').val();
+        var branch = $('[name="branch"]').val();
+        var token = $('#token').val();
+        
+        $.ajax({
+            url: 'edit_stud',
+            headers: {'X-CSRF-TOKEN': token},
+            type: 'POST',
+            data: {name:name, enid:enid, sem:sem, branch:branch},
+            
+            success: function(data) {
+                $('#padd').html(data);
+            }
+        });
+        return false;
+    });
 </script>
