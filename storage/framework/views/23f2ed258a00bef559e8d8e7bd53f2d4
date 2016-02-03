@@ -1,0 +1,5 @@
+<h2> <?php echo e($co[0]->name); ?> </h2>
+<p>Course Code -  <?php echo e($co[0]->code); ?> </p>
+<p>Description - <?php echo e($co[0]->desc); ?></p>
+<p>Semester -  <?php echo e($co[0]->sem); ?> </p>
+<p>Branch -  <?php echo e($co[0]->branch); ?> </p>

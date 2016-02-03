@@ -66,7 +66,7 @@ class RecordController extends Controller
         {
             $faculty = DB::table('faculties')
                 ->select('*')
-                ->where('id','=',$request->get('enid'))->get();
+                ->where('fid','=',$request->get('id'))->get();
             
             return view('admin.edit_facu_form')
                 ->with(['faculty'=>$faculty]);
@@ -78,7 +78,7 @@ class RecordController extends Controller
         if($request->ajax())
         {
             DB::table('faculties')
-                ->where('id', $request->get('enid'))
+                ->where('fid', $request->get('enid'))
                 ->update(['name' => $request->get('name'),
                           'sem' => $request->get('sem'),
                           'branch' => $request->get('branch'),
@@ -115,28 +115,104 @@ class RecordController extends Controller
         }
     }
     
+    public function edit_co_post(Request $request)
+    {
+        if($request->ajax())
+        {
+            $co = DB::table('subjects')
+                ->select('*')
+                ->where('code','=',$request->get('id'))->get();
+            
+            return view('admin.edit_co_form')
+                ->with(['co'=>$co]);
+        }
+    }
+    
+    public function edit_co(Request $request)
+    {
+        if($request->ajax())
+        {
+            DB::table('subjects')
+                ->where('code', $request->get('enid'))
+                ->update(['name' => $request->get('name'),
+                          'desc'=> $request->get('desc'),
+                          'sem' => $request->get('sem'),
+                          'branch' => $request->get('branch'),
+                          'updated_at' => Carbon::now()
+                         ]);
+            return view('admin.edit_co');
+        }
+    }
+    
     public function del_stud(Request $request)
     {
         if($request->ajax())
         {
-            return $request->get('enid');
             $student = DB::table('students')
                 ->select('*')
                 ->where('enid','=',$request->get('enid'))->get();
             
-            return view('admin.del_conf')
+            return view('admin.del_stud_conf')
                 ->with(['student' => $student]);
             /*return view('admin.edit_stud_form')
                 ->with(['student'=>$student]);*/
         }
     }
     
-    public function del_final(Request $request)
+    public function del_stud_final(Request $request)
     {
         if($request->ajax())
         {
             DB::table('students')
                 ->where('enid', '=', $request->get('enid'))
+                ->delete();
+        }
+    }
+    
+    public function del_facu(Request $request)
+    {
+        if($request->ajax())
+        {
+            //return $request->get('enid');
+            $faculty = DB::table('faculties')
+                ->select('*')
+                ->where('fid','=',$request->get('enid'))->get();
+            
+            return view('admin.del_facu_conf')
+                ->with(['faculty' => $faculty]);
+        }
+    }
+    
+    public function del_facu_final(Request $request)
+    {
+        if($request->ajax())
+        {
+            DB::table('faculties')
+                ->where('fid', '=', $request->get('enid'))
+                ->delete();
+        }
+    }
+    
+    public function del_co(Request $request)
+    {
+        if($request->ajax())
+        {
+            //return $request->get('enid');
+            $co = DB::table('subjects')
+                ->select('*')
+                ->where('code','=',$request->get('enid'))->get();
+            
+            return view('admin.del_co_conf')
+                ->with(['co' => $co]);
+        }
+    }
+    
+    public function del_co_final(Request $request)
+    {
+        if($request->ajax())
+        {
+            DB::table('subjects')
+                ->where('code', '=', $request->get('enid'))
                 ->delete();
         }
     }

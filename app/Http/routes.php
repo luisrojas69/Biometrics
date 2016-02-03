@@ -70,11 +70,19 @@ Route::get('/edit_co', function() {
     }
 });
 
+Route::post('/edit_co_post', 'RecordController@edit_co_post');
+
+Route::post('/edit_co', 'RecordController@edit_co');
+
 Route::get('/del_co', function() {
     if(Request::ajax()) {
         return view('admin.del_co');
     }
 });
+
+Route::post('/del_co', 'RecordController@del_co');
+
+Route::post('/del_co_final', 'RecordController@del_co_final');
 
 Route::get('/add_facu', function() {
     if(Request::ajax()) {
@@ -99,6 +107,10 @@ Route::get('/del_facu', function() {
         return view('admin.del_facu');
     }
 });
+
+Route::post('/del_facu', 'RecordController@del_facu');
+
+Route::post('/del_facu_final', 'RecordController@del_facu_final');
 
 Route::get('/course', function() {
     return view('admin.course');
