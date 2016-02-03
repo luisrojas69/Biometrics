@@ -197,7 +197,6 @@ class RecordController extends Controller
     {
         if($request->ajax())
         {
-            //return $request->get('enid');
             $co = DB::table('subjects')
                 ->select('*')
                 ->where('code','=',$request->get('enid'))->get();
@@ -222,8 +221,9 @@ class RecordController extends Controller
         return view('newpage');
     }
     
-    public function newpost(Request $request)
+    public function newpageg()
     {
-        return ($request->get('sem'));
+        $var = DB::table('students')->select('*')->get();
+        return var_dump($var[0]);
     }
 }

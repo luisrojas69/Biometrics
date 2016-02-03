@@ -18,29 +18,19 @@
 </head>
 
 <body>
-    <div class="container">
-        <?php echo Form::open(); ?>
-
-            <div class="row">
-                <div class="input-field col s12">
-                    <select name="sem">
-                        <option value="1">I</option>
-                        <option value="2">II</option>
-                        <option value="3" selected>III</option>
-                        <option value="4">IV</option>
-                        <option value="5">V</option>
-                        <option value="6">VI</option>
-                        <option value="7">VII</option>
-                        <option value="8">VIII</option>
-                </select>
-                </div>
-                <button type="submit">Submit</button>
-            </div>
-        <?php echo Form::close(); ?>
-
-    </div>
+    <div class="container"></div>
+    
     <script type="text/javascript">
-        $('select').material_select();
+        $.ajax({
+            url: 'newpageg',
+            headers: {'X-CSRF-TOKEN': token},
+            type: 'GET',
+            //datatype: 'JSON',
+            success: function(data) {
+                $('.container').html(data);
+            }
+        });
+        return false;
     </script>
 </body>
 
