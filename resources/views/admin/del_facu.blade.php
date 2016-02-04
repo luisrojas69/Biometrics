@@ -1,14 +1,60 @@
 <div class="container">
-{!! Form::open(array('url' => 'del_facu')) !!}
-    <div class="row">
-        <div class="input-field col s12">
-            <input type="text" name="id_del_facu">
-            <label for="id">Enter Faculty ID</label>
+    <form id="del_facu_form" method="post" action="#">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="text" name="id_del_facu">
+                <label for="id">Enter Faculty ID</label>
+            </div>
         </div>
-    </div>
-    <div class="row center-align">
-        <button type="submit" class="btn orange waves-effect space">Submit</button>
-        <button type="reset" class="btn orange waves-effect">Reset</button>
-    </div>
-{!! Form::close() !!}
+        <div class="row center-align">
+            <button type="submit" class="btn orange waves-effect space">Submit</button>
+            <button type="reset" class="btn orange waves-effect">Reset</button>
+        </div>
+    </form>
 </div>
+<div id="modal1" class="modal">
+    <div class="modal-content"></div>
+    <div class="modal-footer">
+        <a href="#!" class=" modal-action waves-effect waves-green btn-flat" id="del_facu_final">Agree</a>
+        <a href="#!" class=" modal-action modal-close waves-effect waves-red btn-flat" id="close">Disagree</a>
+    </div>
+</div>
+<script type="text/javascript">
+    $('.modal-trigger').leanModal();
+    $('#del_facu_form').submit(function() {
+        var enid = $('[name="id_del_facu"]').val();
+        var token = $('#token').val();
+        
+       $.ajax({
+            url: 'del_facu',
+            headers: {'X-CSRF-TOKEN': token},
+            type: 'POST',
+            data: {enid:enid},
+            
+            success: function(data) {
+                $('.modal-content').html(data);
+                $('#modal1').openModal();
+            }
+        });
+        return false;
+    });
+    
+    $('#del_facu_final').click(function() {
+        var enid = $('[name="id_del_facu"]').val();
+        var token = $('#token').val();
+        
+       $.ajax({
+            url: 'del_facu_final',
+            headers: {'X-CSRF-TOKEN': token},
+            type: 'POST',
+            data: {enid:enid},
+            
+            success: function() {
+                $('#del_facu_final').html('Deleted');
+                $('#close').html('Close');
+            }
+        });
+        return false;
+    });
+</script>

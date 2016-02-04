@@ -14,10 +14,7 @@
     </form>
 </div>
 <div id="modal1" class="modal">
-    <div class="modal-content">
-        <h4>Modal Header</h4>
-        <p>A bunch of text</p>
-    </div>
+    <div class="modal-content"></div>
     <div class="modal-footer">
         <a href="#!" class=" modal-action waves-effect waves-green btn-flat" id="del_final">Agree</a>
         <a href="#!" class=" modal-action modal-close waves-effect waves-red btn-flat" id="close">Disagree</a>
@@ -48,7 +45,7 @@
         var token = $('#token').val();
         
        $.ajax({
-            url: 'del_final',
+            url: 'del_stud_final',
             headers: {'X-CSRF-TOKEN': token},
             type: 'POST',
             data: {enid:enid},
