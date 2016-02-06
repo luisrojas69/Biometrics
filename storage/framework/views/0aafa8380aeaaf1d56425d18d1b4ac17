@@ -1,11 +1,11 @@
-<div id="edit_stud_content">
+<div id="edit_facu_content">
     <div class="container">
-        <form id="edit_stud_form" method="post" action="#">
+        <form id="edit_facu_form" method="post" action="#">
             <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>" id="token">
             <div class="row">
                 <div class="input-field col s12">
-                    <input type="text" name="id_edit_student" id="id_edit_student">
-                    <label for="id_edit_student">Enter Student ID</label>
+                    <input type="text" name="id_edit_facu" id="id_edit_facu">
+                    <label for="id_edit_facu">Enter Student ID</label>
                 </div>
             </div>
             <div class="row center-align">
@@ -16,19 +16,18 @@
     </div>
 </div>
 <script type="text/javascript">
-    $('#edit_stud_form').submit(function() {
-        var id = $('#id_edit_student').val();
+    $('#edit_facu_form').submit(function() {
+        var id = $('#id_edit_facu').val();
         var token = $('#token').val();
         
         $.ajax({
-            url: 'post_req',
+            url: 'edit_facu_post',
             headers: {'X-CSRF-TOKEN': token},
             type: 'POST',
-            //dataType: 'json',
             data: {id:id},
             
             success: function(data) {
-                $('#edit_stud_content').html(data);
+                $('#edit_facu_content').html(data);
             }
         });
         return false;
