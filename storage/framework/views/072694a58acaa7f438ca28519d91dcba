@@ -45,7 +45,7 @@
         var token = $('#token').val();
         
        $.ajax({
-            url: 'del_stud_final',
+            url: 'del_final',
             headers: {'X-CSRF-TOKEN': token},
             type: 'POST',
             data: {enid:enid},
