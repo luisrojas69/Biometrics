@@ -19,6 +19,7 @@
 </div>
 
 <script type="text/javascript">
+    $(document).ready(function() {
     $('#chart').insertFusionCharts({
         type: 'column2d',
         width: '100%',
@@ -35,30 +36,31 @@
             
             data: [
                 {
-                    label: "Bakersfield Central",
+                    label: "Sem 1",
                     value: "880000"
                 },
                 
                 {
-                    label: "Garden Groove harbour",
+                    label: "Sem 2",
                     value: "730000"
                 },
                 
                 {
-                    label: "Los Angeles Topanga",
+                    label: "Sem 3",
                     value: "590000"
                 },
                 
                 {
-                    label: "Compton-Rancho Dom",
+                    label: "Sem 4",
                     value: "520000"
                 },
                 
                 {
-                    label: "Daly City Serramonte",
+                    label: "Sem 5",
                     value: "330000"
                 }
             ]
         }
     });
+        });
 </script>

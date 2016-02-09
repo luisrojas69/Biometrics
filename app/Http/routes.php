@@ -54,7 +54,7 @@ Route::get('/del_stud', function() {
 
 Route::post('/del_stud', 'RecordController@del_stud');
 
-Route::post('/del_final', 'RecordController@del_final');
+Route::post('/del_final', 'RecordController@del_stud_final');
 
 Route::post('/add_co','RecordController@add_co');
 
