@@ -13,12 +13,4 @@ class subject extends Model
         'branch',
         'sem'
         ];
-    public function faculty()
-    {
-        return $this->hasMany('app\faculty');
-    }
-    public function students()
-    {
-        return $this->hasMany('app\student');
-    }
 }
