@@ -2,10 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\student;
+use App\faculty;
+use App\subject;
+use App\relation;
+use App\subfacrel;
+use App\User;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+//use App\Http\Controllers\Controller;
 class LoginController extends Controller
 {
     //public function __construct()
@@ -44,5 +51,14 @@ class LoginController extends Controller
     public function facu()
     {
         return view('faculty.facu');
+    }
+
+    public function dash()
+    {
+        $numStud = DB::table('students')->count();
+        $numCo = DB::table('subjects')->count();
+        $numFacu = DB::table('faculties')->count();
+
+        return view('admin.admin_master', ['numStud' => $numStud, 'numCo' => $numCo, 'numFacu' => $numFacu]);
     }
 }

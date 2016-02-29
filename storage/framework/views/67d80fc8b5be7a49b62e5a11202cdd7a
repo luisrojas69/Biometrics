@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col s12 m4">
         <div class="card-panel white hoverable">
-            <p class="flow-text center-align">Students Registered<br>4903</p>
+            <p class="flow-text center-align">Students Registered<br>4322</p>
         </div>
     </div>
     <div class="col s12 m4">

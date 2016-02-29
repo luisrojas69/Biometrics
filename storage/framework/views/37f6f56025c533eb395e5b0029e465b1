@@ -19,20 +19,8 @@
                 <label for="enid" class="active">Enrollment Key</label>
             </div>
         </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <select name="sem">
-                    <option value="1" <?php if($faculty[0]->sem == '1'): ?>active selected <?php endif; ?>>I</option>
-                    <option value="2" <?php if($faculty[0]->sem == '2'): ?>active selected <?php endif; ?>>II</option>
-                    <option value="3" <?php if($faculty[0]->sem == '3'): ?>active selected <?php endif; ?>>III</option>
-                    <option value="4" <?php if($faculty[0]->sem == '4'): ?>active selected <?php endif; ?>>IV</option>
-                    <option value="5" <?php if($faculty[0]->sem == '5'): ?>active selected <?php endif; ?>>V</option>
-                    <option value="6" <?php if($faculty[0]->sem == '6'): ?>active selected <?php endif; ?>>VI</option>
-                    <option value="7" <?php if($faculty[0]->sem == '7'): ?>active selected <?php endif; ?>>VII</option>
-                    <option value="8" <?php if($faculty[0]->sem == '8'): ?>active selected <?php endif; ?>>VIII</option>
-                </select>
-            </div>
 
+        <div class="row">
             <div class="input-field col s12">
                 <select name="branch">
                     <option value="CSE" <?php if($faculty[0]->branch == 'CSE'): ?>active selected <?php endif; ?>>CSE</option>

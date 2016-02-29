@@ -41,20 +41,6 @@
                 <li class="no-padding">
                     <ul class="collapsible collapsible-accordion">
                         <li>
-                            <a class="collapsible-header"><i class="material-icons right">arrow_drop_down</i>Students</a>
-                            <div class="collapsible-body">
-                                <ul>
-                                    <li id="add_stud"><a href="#">ADD</a></li>
-                                    <li id="edit_stud"><a href="#">EDIT</a></li>
-                                    <li id="del_stud"><a href="#">DELETE</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <li class="no-padding">
-                    <ul class="collapsible collapsible-accordion">
-                        <li>
                             <a class="collapsible-header"><i class="material-icons right">arrow_drop_down</i>Courses</a>
                             <div class="collapsible-body">
                                 <ul>
@@ -75,6 +61,20 @@
                                     <li id="add_facu"><a href="#">ADD</a></li>
                                     <li id="edit_facu"><a href="#">EDIT</a></li>
                                     <li id="del_facu"><a href="#">DELETE</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="no-padding">
+                    <ul class="collapsible collapsible-accordion">
+                        <li>
+                            <a class="collapsible-header"><i class="material-icons right">arrow_drop_down</i>Students</a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li id="add_stud"><a href="#">ADD</a></li>
+                                    <li id="edit_stud"><a href="#">EDIT</a></li>
+                                    <li id="del_stud"><a href="#">DELETE</a></li>
                                 </ul>
                             </div>
                         </li>

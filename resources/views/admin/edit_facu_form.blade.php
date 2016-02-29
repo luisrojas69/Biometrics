@@ -19,20 +19,8 @@
                 <label for="enid" class="active">Enrollment Key</label>
             </div>
         </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <select name="sem">
-                    <option value="1" @if($faculty[0]->sem == '1')active selected @endif>I</option>
-                    <option value="2" @if($faculty[0]->sem == '2')active selected @endif>II</option>
-                    <option value="3" @if($faculty[0]->sem == '3')active selected @endif>III</option>
-                    <option value="4" @if($faculty[0]->sem == '4')active selected @endif>IV</option>
-                    <option value="5" @if($faculty[0]->sem == '5')active selected @endif>V</option>
-                    <option value="6" @if($faculty[0]->sem == '6')active selected @endif>VI</option>
-                    <option value="7" @if($faculty[0]->sem == '7')active selected @endif>VII</option>
-                    <option value="8" @if($faculty[0]->sem == '8')active selected @endif>VIII</option>
-                </select>
-            </div>
 
+        <div class="row">
             <div class="input-field col s12">
                 <select name="branch">
                     <option value="CSE" @if($faculty[0]->branch == 'CSE')active selected @endif>CSE</option>
@@ -55,7 +43,6 @@
     $('#edit_final').submit(function() {
         var name = $('[name="name"]').val();
         var enid = $('[name="enid"]').val();
-        var sem = $('[name="sem"]').val();
         var branch = $('[name="branch"]').val();
         var token = $('#token').val();
         
@@ -63,7 +50,7 @@
             url: 'edit_facu',
             headers: {'X-CSRF-TOKEN': token},
             type: 'POST',
-            data: {name:name, enid:enid, sem:sem, branch:branch},
+            data: {name:name, enid:enid, branch:branch},
             
             success: function(data) {
                 $('#padd').html(data);

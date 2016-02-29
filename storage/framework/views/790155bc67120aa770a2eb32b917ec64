@@ -24,10 +24,10 @@
                 <input type="text" name="f_enid">
                 <label for="enid">Faculty Enrollment ID</label>
             </div>
-        </div>-->
+        </div>
         <div class="row">
             <div class="input-field col s12">
-                <select name="sem">
+                <select name="sem" multiple>
                     <option value="" disabled selected>Choose A Sem</option>
                     <option value="1">I</option>
                     <option value="2">II</option>
@@ -39,17 +39,24 @@
                     <option value="8">VIII</option>
                 </select>
             </div>
-        </div>
+        </div>-->
         <div class="row">
             <div class="input-field col s12">
                 <select name="branch">
-                    <option value="" disabled selected>Choose A Branch</option>
+                    <option value="" disabled>Choose A Branch</option>
                     <option value="CSE">CSE</option>
                     <option value="ECE">ECE</option>
                     <option value="ME">ME</option>
                     <option value="CIVIL">CIVIL</option>
                     <option value="EE">EE</option>
                     <option value="BBA">BBA</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <select name="subjects" multiple>
+                    <option value="" disabled>Select all subjects that apply</option>
                 </select>
             </div>
         </div>

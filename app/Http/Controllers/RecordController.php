@@ -8,6 +8,9 @@ use App\Http\Controllers\Controller;
 use App\student;
 use App\faculty;
 use App\subject;
+use App\relation;
+use App\subfacrel;
+use App\User;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 

@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <input type="text" name="id_edit_facu" id="id_edit_facu">
-                    <label for="id_edit_facu">Enter Student ID</label>
+                    <label for="id_edit_facu">Enter Faculty ID</label>
                 </div>
             </div>
             <div class="row center-align">
