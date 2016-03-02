@@ -48,6 +48,8 @@ class RecordController extends Controller
     public function add_co(Request $request)
     {
         $input = $request->all();
+        $input['sem'] = implode(",", $input['sem']);
+        $input['branch'] = implode(",", $input['branch']);
         $input['created_at'] = Carbon::now();
         $input['updated_at'] = Carbon::now();
         subject::create($input);
@@ -125,7 +127,21 @@ class RecordController extends Controller
             $co = DB::table('subjects')
                 ->select('*')
                 ->where('code','=',$request->get('id'))->get();
-            
+
+            //return var_dump(explode(",", $co[0]->sem));
+
+            //Store values in temp var
+            $semTemp = explode(",", $co[0]->sem);
+            $branchTemp = explode(",", $co[0]->branch);
+
+            //delete properties from object
+            unset($co[0]->sem);
+            unset($co[0]->branch);
+
+            //set fresh properties from temp vars
+            $co[0]->sem = $semTemp;
+            $co[0]->branch = $branchTemp;
+
             return view('admin.edit_co_form')
                 ->with(['co'=>$co]);
         }
@@ -135,14 +151,16 @@ class RecordController extends Controller
     {
         if($request->ajax())
         {
+            echo "Inside edit_co";
             DB::table('subjects')
                 ->where('code', $request->get('enid'))
                 ->update(['name' => $request->get('name'),
                           'desc'=> $request->get('desc'),
-                          'sem' => $request->get('sem'),
-                          'branch' => $request->get('branch'),
+                          'sem' => implode(",", $request->get('sem')),
+                          'branch' => implode(",", $request->get('branch')),
                           'updated_at' => Carbon::now()
                          ]);
+            echo "Completed db transaction";
             return view('admin.edit_co');
         }
     }

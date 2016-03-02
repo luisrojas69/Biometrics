@@ -1,8 +1,3 @@
-<script type="text/javascript">
-    $('select').material_select();
-</script>
-<h3>Hello {{$co[0]->name}} </h3>
-
 <div class="container">
     <form id="edit_final" method="post" action="#">
         <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
@@ -14,7 +9,7 @@
     </div>
         <div class="row">
             <div class="input-field col s12">
-                <input type="text" name="enid" value="{{$co[0]->enid}}" disabled>
+                <input type="text" name="enid" value="{{$co[0]->code}}" disabled>
                 <label for="enid" class="active">Course Code</label>
             </div>
         </div>
@@ -24,31 +19,35 @@
                 <label for="desc">Description</label>
             </div>
         </div>
+        
         <div class="row">
             <div class="input-field col s12">
-                <select name="sem">
-                    <option value="1" @if($co[0]->sem == '1')active selected @endif>I</option>
-                    <option value="2" @if($co[0]->sem == '2')active selected @endif>II</option>
-                    <option value="3" @if($co[0]->sem == '3')active selected @endif>III</option>
-                    <option value="4" @if($co[0]->sem == '4')active selected @endif>IV</option>
-                    <option value="5" @if($co[0]->sem == '5')active selected @endif>V</option>
-                    <option value="6" @if($co[0]->sem == '6')active selected @endif>VI</option>
-                    <option value="7" @if($co[0]->sem == '7')active selected @endif>VII</option>
-                    <option value="8" @if($co[0]->sem == '8')active selected @endif>VIII</option>
-                </select>
-            </div>
-
-            <div class="input-field col s12">
-                <select name="branch">
-                    <option value="CSE" @if($co[0]->branch == 'CSE')active selected @endif>CSE</option>
-                    <option value="ECE" @if($co[0]->branch == 'ECE')active selected @endif>ECE</option>
-                    <option value="ME" @if($co[0]->branch == 'ME')active selected @endif>ME</option>
-                    <option value="CIVIL" @if($co[0]->branch == 'CIVIL')active selected @endif>CIVIL</option>
-                    <option value="EE" @if($co[0]->branch == 'EE')active selected @endif>EE</option>
-                    <option value="BBA" @if($co[0]->branch == 'BBA')active selected @endif>BBA</option>
+                <select name="sem[]" multiple>
+                    <option value="1">I</option>
+                    <option value="2">II</option>
+                    <option value="3">III</option>
+                    <option value="4">IV</option>
+                    <option value="5">V</option>
+                    <option value="6">VI</option>
+                    <option value="7">VII</option>
+                    <option value="8">VIII</option>
                 </select>
             </div>
         </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <select name="branch[]" multiple>
+                    <option value="CSE" @if(in_array('CSE', $co[0]->branch))active selected @endif>CSE</option>
+                    <option value="ECE" @if(in_array('ECE', $co[0]->branch))active selected @endif>ECE</option>
+                    <option value="ME" @if(in_array('ME', $co[0]->branch))active selected @endif>ME</option>
+                    <option value="CIVIL" @if(in_array('CIVIL', $co[0]->branch))active selected @endif>CIVIL</option>
+                    <option value="EE" @if(in_array('EE', $co[0]->branch))active selected @endif>EE</option>
+                    <option value="BBA" @if(in_array('BBA', $co[0]->branch))active selected @endif>BBA</option>
+                </select>
+            </div>
+        </div>
+        
         <div class="row center-align">
             <button type="submit" class="btn orange waves-effect space">Submit</button>
             <button type="reset" class="btn orange waves-effect">Reset</button>
@@ -77,4 +76,6 @@
         });
         return false;
     });
+    $('[name="sem"]').val([1,2]).prop("selected", true);
+    $('select').material_select();
 </script>

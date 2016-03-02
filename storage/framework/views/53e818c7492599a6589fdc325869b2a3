@@ -1,6 +1,6 @@
 <div id="edit_co_content">
     <div class="container">
-        <form id="edit_stud_form" method="post" action="#">
+        <form id="edit_co_form" method="post" action="#">
             <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>" id="token">
             <div class="row">
                 <div class="input-field col s12">
