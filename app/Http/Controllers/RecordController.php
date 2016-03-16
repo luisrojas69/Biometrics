@@ -229,8 +229,18 @@ class RecordController extends Controller
     {
         if($request->ajax())
         {
+            $code = $request->get('enid');
+
             DB::table('subjects')
-                ->where('code', '=', $request->get('enid'))
+                ->where('code', '=', $code)
+                ->delete();
+
+            DB::table('subfacrels')
+                ->where('code', '=', $code)
+                ->delete();
+
+            DB::table('relations')
+                ->where('code', '=', $code)
                 ->delete();
         }
     }
@@ -244,5 +254,42 @@ class RecordController extends Controller
     {
         $var = DB::table('students')->select('*')->get();
         return var_dump($var[0]);
+    }
+
+    public function getSubjects(Request $request)
+    {
+        if ($request->ajax())
+        {
+            $branch = $request->get('branch');
+            $str = '<div class="row">
+                        <div class="input-field col s12">
+                            <select name="sub" multiple>
+                                <option value="" disabled selected>Select Subjects</option>
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>';
+            $.each($branch, function(index, value)
+            {
+                if (in_array(value, populateSubjects($branch)))
+                {
+                    //append value and text to $str
+                    //go to add_facu and recieve data
+                    //crreate multiple select by appending in form
+                    //3:16 AM. Much Wow.
+                }
+            });
+        }
+    }
+
+    public function populateSubjects($branch)
+    {
+        $res = DB::table('subjects')
+                ->select('branch')
+                ->where('branch','like', '%' + $branch + '%')->get();
+
+        return explode(",", $res[0]->branch);
+        //$res = DB::select('select name, code from subjects where branch like ?', $branch);
+        //DB::table('users')->where('name', 'like', 'T%')->get();
     }
 }

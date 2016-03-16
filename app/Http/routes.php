@@ -125,6 +125,8 @@ Route::get('/newpage', 'RecordController@newpageg');
 
 Route::post('/newpage', 'RecordController@newpost');
 
+Route::post('/getSubjects', 'RecordController@getSubjects');
+
 /*Route::post('/post_req', function() {
     if(Request::ajax()) {
         return Response::json(Request::all());
