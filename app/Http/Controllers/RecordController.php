@@ -151,7 +151,6 @@ class RecordController extends Controller
     {
         if($request->ajax())
         {
-            echo "Inside edit_co";
             DB::table('subjects')
                 ->where('code', $request->get('enid'))
                 ->update(['name' => $request->get('name'),
@@ -160,7 +159,6 @@ class RecordController extends Controller
                           'branch' => implode(",", $request->get('branch')),
                           'updated_at' => Carbon::now()
                          ]);
-            echo "Completed db transaction";
             return view('admin.edit_co');
         }
     }

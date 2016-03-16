@@ -15,14 +15,14 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <textarea id="desc" class="materialize-textarea" value="{{$co[0]->desc}}"></textarea>
-                <label for="desc">Description</label>
+                <textarea id="desc" class="materialize-textarea">{{$co[0]->desc}}</textarea>
+                <label for="desc" class="active">Description</label>
             </div>
         </div>
         
         <div class="row">
             <div class="input-field col s12">
-                <select name="sem[]" multiple>
+                <select name="sem" multiple>
                     <option value="1" @if(in_array('1', $co[0]->sem)) active selected @endif>I</option>
                     <option value="2" @if(in_array('2', $co[0]->sem)) active selected @endif>II</option>
                     <option value="3" @if(in_array('3', $co[0]->sem)) active selected @endif>III</option>
@@ -37,7 +37,7 @@
 
         <div class="row">
             <div class="input-field col s12">
-                <select name="branch[]" multiple>
+                <select name="branch" multiple>
                     <option value="CSE" @if(in_array('CSE', $co[0]->branch))active selected @endif>CSE</option>
                     <option value="ECE" @if(in_array('ECE', $co[0]->branch))active selected @endif>ECE</option>
                     <option value="ME" @if(in_array('ME', $co[0]->branch))active selected @endif>ME</option>
@@ -60,8 +60,8 @@
         var name = $('[name="name"]').val();
         var enid = $('[name="enid"]').val();
         var desc = $('#desc').val();
-        var sem = $('[name="sem"]').val();
-        var branch = $('[name="branch"]').val();
+        var sem = $('[name="sem"]').val() || [];
+        var branch = $('[name="branch"]').val() || [];
         var token = $('#token').val();
         
         $.ajax({
