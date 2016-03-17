@@ -18,20 +18,39 @@
 </head>
 
 <body>
-    <div class="container"></div>
+    <div class="container">
+        <div class="row">
+            <div class="input-field col s12">
+                <select name="branch" multiple>
+                    <option value="" disabled selected>Choose Branch</option>
+                    <option value="CSE">CSE</option>
+                    <option value="ECE">ECE</option>
+                    <option value="ME">ME</option>
+                    <option value="CIVIL">CIVIL</option>
+                    <option value="EE">EE</option>
+                    <option value="BBA">BBA</option>
+                </select>
+            </div>
+    </div>
     
     <script type="text/javascript">
+    $('select').material_select();
+    $('[name="branch"]').change(function() {
+        $branch = $('[name="branch"]').val() || [];
         $.ajax({
-            url: 'newpageg',
+            url: 'newpage',
             headers: {'X-CSRF-TOKEN': token},
-            type: 'GET',
-            datatype: 'JSON',
+            type: 'POST',
+            data: {branch:branch},
+
             success: function(data) {
-                $('.container').html(data);
+                $('.container').append(data);
+                $('select').material_select();
             }
         });
         return false;
-    </script>
+    });
+</script>
 </body>
 
 </html>

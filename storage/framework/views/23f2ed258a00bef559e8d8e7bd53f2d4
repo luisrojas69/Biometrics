@@ -3,3 +3,4 @@
 <p>Description - <?php echo e($co[0]->desc); ?></p>
 <p>Semester -  <?php echo e($co[0]->sem); ?> </p>
 <p>Branch -  <?php echo e($co[0]->branch); ?> </p>
+<p>Warning: All teacher information as well as student attendance information will be deleted.</p>

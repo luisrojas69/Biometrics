@@ -121,7 +121,6 @@ Route::get('/home', function() {
 });
 
 Route::get('/newpage', 'RecordController@newpage');
-Route::get('/newpage', 'RecordController@newpageg');
 
 Route::post('/newpage', 'RecordController@newpost');
 

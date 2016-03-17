@@ -62,6 +62,9 @@ class RecordController extends Controller
         $input['created_at'] = Carbon::now();
         $input['updated_at'] = Carbon::now();
         faculty::create($input);
+
+        $input['code'] = implode(",", $input['sub']);
+        subfacrel::create($input);
         return view('admin.admin_master');
     }
     
@@ -249,6 +252,17 @@ class RecordController extends Controller
     {
         return view('newpage');
     }
+
+    public function newpost()
+    {
+        if ($request->ajax())
+        {
+            $res = DB::table('subjects')
+                ->select('branch')
+                ->where('branch','like', 'C%')->get();
+        }
+        return var_dump($res[0]);
+    }
     
     public function newpageg()
     {
@@ -261,35 +275,21 @@ class RecordController extends Controller
         if ($request->ajax())
         {
             $branch = $request->get('branch');
-            $str = '<div class="row">
-                        <div class="input-field col s12">
-                            <select name="sub" multiple>
-                                <option value="" disabled selected>Select Subjects</option>
-                                <option value=""></option>
-                            </select>
-                        </div>
-                    </div>';
-            $.each($branch, function(index, value)
+            $str = '<div class="input-field col s12">
+                        <select name="sub[]" multiple>
+                            <option value="" disabled selected>Select Subjects</option>';
+
+            $res = DB::table('subjects')
+                ->select('code', 'name')
+                ->where('branch','like', '%'.$branch.'%')->get();
+
+            foreach ($res as $key => $value)
             {
-                if (in_array(value, populateSubjects($branch)))
-                {
-                    //append value and text to $str
-                    //go to add_facu and recieve data
-                    //crreate multiple select by appending in form
-                    //3:16 AM. Much Wow.
-                }
-            });
+                $str = $str.'<option value="'.$value->code.'">'.$value->name.' ('.$value->code.')</option>';
+            }
+
+            $str = $str.'</select></div>';
+            return $str;
         }
-    }
-
-    public function populateSubjects($branch)
-    {
-        $res = DB::table('subjects')
-                ->select('branch')
-                ->where('branch','like', '%' + $branch + '%')->get();
-
-        return explode(",", $res[0]->branch);
-        //$res = DB::select('select name, code from subjects where branch like ?', $branch);
-        //DB::table('users')->where('name', 'like', 'T%')->get();
     }
 }

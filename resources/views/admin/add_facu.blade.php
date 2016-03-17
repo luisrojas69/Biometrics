@@ -1,5 +1,5 @@
 <div class="container">
-<form id="add_facu" method="post" action="#">
+{!! Form::open(array('url' => 'add_facu', 'id' => 'add_facu')) !!}
     <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
     <div class="row">
         <div class="input-field col s12">
@@ -25,9 +25,9 @@
                 <label for="enid">Faculty Enrollment ID</label>
             </div>
         </div>-->
-        <div class="row">
+        <div class="row" id="branch">
             <div class="input-field col s12">
-                <select name="branch" multiple>
+                <select name="branch">
                     <option value="" disabled selected>Choose Branch</option>
                     <option value="CSE">CSE</option>
                     <option value="ECE">ECE</option>
@@ -38,23 +38,18 @@
                 </select>
             </div>
         </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <select name="subjects[]" multiple>
-                    <option value="" disabled>Select all subjects that apply</option>
-                </select>
-            </div>
-        </div>
+        <div class="row" id="sub"></div>
     <div class="row center-align">
         <button type="submit" class="btn orange waves-effect space">Submit</button>
         <button type="reset" class="btn orange waves-effect">Reset</button>
     </div>
-</form>
+{!! Form::close() !!}
 </div>
 <script type="text/javascript">
     $('select').material_select();
-    $('[name="branch"]').blur(function() {
-        $branch = $('[name="branch"]').val() || [];
+    $('[name="branch"]').change(function() {
+        var branch = $('ul.dropdown-content li.selected').text();
+        var token = $('#token').val();
         $.ajax({
             url: 'getSubjects',
             headers: {'X-CSRF-TOKEN': token},
@@ -62,7 +57,7 @@
             data: {branch:branch},
 
             success: function(data) {
-                $('#add_facu').append(data);
+                $('#sub').html(data);
                 $('select').material_select();
             }
         });
