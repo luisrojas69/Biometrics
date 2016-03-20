@@ -13,12 +13,13 @@ class Faculty extends Migration
     public function up()
     {
         Schema::create('faculties', function (Blueprint $table) {
-            $table->increments('id');
             $table->string('name');
             $table->string('fid',9)->unique();
             $table->string('email')->unique();
             $table->string('branch');
             $table->timestamps();
+
+            $table->primary('fid');
         });
     }
 

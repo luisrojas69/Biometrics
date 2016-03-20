@@ -13,7 +13,6 @@ class Subject extends Migration
     public function up()
     {
         Schema::create('subjects', function (Blueprint $table) {
-            $table->increments('id');
             $table->string('code')->unique();
             $table->string('desc');
             $table->string('name');
@@ -21,6 +20,8 @@ class Subject extends Migration
             $table->string('branch');
             //$table->string('year');
             $table->timestamps();
+
+            $table->primary('code');
         });
     }
 

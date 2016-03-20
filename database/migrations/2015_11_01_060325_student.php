@@ -13,12 +13,13 @@ class Student extends Migration
     public function up()
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->increments('id');
             $table->string('name');
             $table->string('enid',8)->unique();
             $table->integer('sem');
             $table->string('branch');
             $table->timestamps();
+
+            $table->primary('enid');
         });
     }
 
