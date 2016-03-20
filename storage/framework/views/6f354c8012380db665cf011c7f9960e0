@@ -31,26 +31,13 @@
                 <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
                 <a href="#" class="brand-logo"><i class="material-icons left full">fingerprint</i> BIOMETRICS</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="#modal_req" class="modal-trigger">Requests <span class="new badge">4</span></a></li>
                     <li><a id="toggle_search" href="#"><i class="material-icons">file_upload</i></a></li>
                     <li><a href="#" class="dropdown-button" data-activates="dropdown1"><i class="material-icons">account_circle</i></a></li>
                 </ul>
             </div>
             <ul id="slide-out" class="side-nav full fixed">
                 <li id="home"><a href="#">Home</a></li>
-                <li class="no-padding">
-                    <ul class="collapsible collapsible-accordion">
-                        <li>
-                            <a class="collapsible-header"><i class="material-icons right">arrow_drop_down</i>Students</a>
-                            <div class="collapsible-body">
-                                <ul>
-                                    <li id="add_stud"><a href="#">ADD</a></li>
-                                    <li id="edit_stud"><a href="#">EDIT</a></li>
-                                    <li id="del_stud"><a href="#">DELETE</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
                 <li class="no-padding">
                     <ul class="collapsible collapsible-accordion">
                         <li>
@@ -74,6 +61,20 @@
                                     <li id="add_facu"><a href="#">ADD</a></li>
                                     <li id="edit_facu"><a href="#">EDIT</a></li>
                                     <li id="del_facu"><a href="#">DELETE</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="no-padding">
+                    <ul class="collapsible collapsible-accordion">
+                        <li>
+                            <a class="collapsible-header"><i class="material-icons right">arrow_drop_down</i>Students</a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li id="add_stud"><a href="#">ADD</a></li>
+                                    <li id="edit_stud"><a href="#">EDIT</a></li>
+                                    <li id="del_stud"><a href="#">DELETE</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -131,6 +132,16 @@
         </div>
     </div>
     
+    <div id="modal_req" class="modal bottom-sheet">
+        <div class="modal-content">
+            <h4>Modal Header</h4>
+            <p>Your Request</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
+    
     <div id="padd"></div>
     
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -139,5 +150,10 @@
     <script type="text/javascript" src="fusioncharts/fusioncharts.js"></script>
     <script type="text/javascript" src="js/fusioncharts-jquery-plugin.js"></script>
     <script type="text/javascript" src="fusioncharts/themes/fusioncharts.theme.zune.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.modal-trigger').leanModal();
+        })
+    </script>
 </body>
 </html>

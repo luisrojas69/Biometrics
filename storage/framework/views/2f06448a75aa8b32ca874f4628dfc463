@@ -21,7 +21,7 @@
     </div>
     <div class="row">
         <div class="input-field col s12">
-            <select name="sem">
+            <select name="sem[]" multiple>
                 <option value="" disabled selected>Choose A Sem</option>
                 <option value="1">I</option>
                 <option value="2">II</option>
@@ -36,7 +36,7 @@
     </div>
     <div class="row">
         <div class="input-field col s12">
-            <select name="branch">
+            <select name="branch[]" multiple>
                 <option value="" disabled selected>Choose A Branch</option>
                 <option value="CSE">CSE</option>
                 <option value="ECE">ECE</option>
@@ -47,7 +47,7 @@
             </select>
         </div>
     </div>
-<div class="roe center-align">
+<div class="row center-align">
     <button type="submit" class="btn orange waves-effect space">Submit</button>
     <button type="reset" class="btn orange waves-effect">Reset</button>
 </div>
