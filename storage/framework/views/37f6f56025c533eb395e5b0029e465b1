@@ -43,7 +43,6 @@
     $('#edit_final').submit(function() {
         var name = $('[name="name"]').val();
         var enid = $('[name="enid"]').val();
-        var sem = $('[name="sem"]').val();
         var branch = $('[name="branch"]').val();
         var token = $('#token').val();
         
@@ -51,7 +50,7 @@
             url: 'edit_facu',
             headers: {'X-CSRF-TOKEN': token},
             type: 'POST',
-            data: {name:name, enid:enid, sem:sem, branch:branch},
+            data: {name:name, enid:enid, branch:branch},
             
             success: function(data) {
                 $('#padd').html(data);

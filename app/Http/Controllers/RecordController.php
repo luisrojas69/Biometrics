@@ -62,6 +62,9 @@ class RecordController extends Controller
         $input['created_at'] = Carbon::now();
         $input['updated_at'] = Carbon::now();
         faculty::create($input);
+
+        $input['code'] = implode(",", $input['sub']);
+        subfacrel::create($input);
         return view('admin.admin_master');
     }
     
@@ -151,7 +154,6 @@ class RecordController extends Controller
     {
         if($request->ajax())
         {
-            echo "Inside edit_co";
             DB::table('subjects')
                 ->where('code', $request->get('enid'))
                 ->update(['name' => $request->get('name'),
@@ -160,7 +162,6 @@ class RecordController extends Controller
                           'branch' => implode(",", $request->get('branch')),
                           'updated_at' => Carbon::now()
                          ]);
-            echo "Completed db transaction";
             return view('admin.edit_co');
         }
     }
@@ -231,8 +232,18 @@ class RecordController extends Controller
     {
         if($request->ajax())
         {
+            $code = $request->get('enid');
+
             DB::table('subjects')
-                ->where('code', '=', $request->get('enid'))
+                ->where('code', '=', $code)
+                ->delete();
+
+            DB::table('subfacrels')
+                ->where('code', '=', $code)
+                ->delete();
+
+            DB::table('relations')
+                ->where('code', '=', $code)
                 ->delete();
         }
     }
@@ -241,10 +252,44 @@ class RecordController extends Controller
     {
         return view('newpage');
     }
+
+    public function newpost()
+    {
+        if ($request->ajax())
+        {
+            $res = DB::table('subjects')
+                ->select('branch')
+                ->where('branch','like', 'C%')->get();
+        }
+        return var_dump($res[0]);
+    }
     
     public function newpageg()
     {
         $var = DB::table('students')->select('*')->get();
         return var_dump($var[0]);
+    }
+
+    public function getSubjects(Request $request)
+    {
+        if ($request->ajax())
+        {
+            $branch = $request->get('branch');
+            $str = '<div class="input-field col s12">
+                        <select name="sub[]" multiple>
+                            <option value="" disabled selected>Select Subjects</option>';
+
+            $res = DB::table('subjects')
+                ->select('code', 'name')
+                ->where('branch','like', '%'.$branch.'%')->get();
+
+            foreach ($res as $key => $value)
+            {
+                $str = $str.'<option value="'.$value->code.'">'.$value->name.' ('.$value->code.')</option>';
+            }
+
+            $str = $str.'</select></div>';
+            return $str;
+        }
     }
 }

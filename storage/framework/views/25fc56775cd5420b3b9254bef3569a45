@@ -95,13 +95,13 @@
                     </ul>
                 </li>
                 <div class="row">
-                    <div class="col s4">
+                    <div class="col">
                         <a class="btn-flat waves-effect waves-red center-align"><i class="material-icons">bug_report</i></a>
                     </div>
-                    <div class="col s4">
+                    <div class="col">
                         <a class="btn-flat waves-effect waves-orange center-align"><i class="material-icons">contact_mail</i></a>
                     </div>
-                    <div class="col s4 hide-on-large-only">
+                    <div class="col hide-on-large-only">
                         <a class="btn-flat waves-effect waves-orange center-align"><i class="fa fa-sign-out"></i></a>
                     </div>
                 </div>

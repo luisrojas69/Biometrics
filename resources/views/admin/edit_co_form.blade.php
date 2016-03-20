@@ -15,13 +15,19 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
+<<<<<<< HEAD
                 <textarea id="desc" class="materialize-textarea" value="{{$co[0]->desc}}"></textarea>
                 <label for="desc">Description</label>
+=======
+                <textarea id="desc" class="materialize-textarea">{{$co[0]->desc}}</textarea>
+                <label for="desc" class="active">Description</label>
+>>>>>>> 2e3fad93c3a477f84f30a8a092e4e3b0010d423e
             </div>
         </div>
         
         <div class="row">
             <div class="input-field col s12">
+<<<<<<< HEAD
                 <select name="sem[]" multiple>
                     <option value="1" @if(in_array('1', $co[0]->sem))active selected @endif>I</option>
                     <option value="2" @if(in_array('2', $co[0]->sem))active selected @endif>II</option>
@@ -31,13 +37,24 @@
                     <option value="6" @if(in_array('6', $co[0]->sem))active selected @endif>VI</option>
                     <option value="7" @if(in_array('7', $co[0]->sem))active selected @endif>VII</option>
                     <option value="8" @if(in_array('8', $co[0]->sem))active selected @endif>VIII</option>
+=======
+                <select name="sem" multiple>
+                    <option value="1" @if(in_array('1', $co[0]->sem)) active selected @endif>I</option>
+                    <option value="2" @if(in_array('2', $co[0]->sem)) active selected @endif>II</option>
+                    <option value="3" @if(in_array('3', $co[0]->sem)) active selected @endif>III</option>
+                    <option value="4" @if(in_array('4', $co[0]->sem)) active selected @endif>IV</option>
+                    <option value="5" @if(in_array('5', $co[0]->sem)) active selected @endif>V</option>
+                    <option value="6" @if(in_array('6', $co[0]->sem)) active selected @endif>VI</option>
+                    <option value="7" @if(in_array('7', $co[0]->sem)) active selected @endif>VII</option>
+                    <option value="8" @if(in_array('8', $co[0]->sem)) active selected @endif>VIII</option>
+>>>>>>> 2e3fad93c3a477f84f30a8a092e4e3b0010d423e
                 </select>
             </div>
         </div>
 
         <div class="row">
             <div class="input-field col s12">
-                <select name="branch[]" multiple>
+                <select name="branch" multiple>
                     <option value="CSE" @if(in_array('CSE', $co[0]->branch))active selected @endif>CSE</option>
                     <option value="ECE" @if(in_array('ECE', $co[0]->branch))active selected @endif>ECE</option>
                     <option value="ME" @if(in_array('ME', $co[0]->branch))active selected @endif>ME</option>
@@ -60,8 +77,8 @@
         var name = $('[name="name"]').val();
         var enid = $('[name="enid"]').val();
         var desc = $('#desc').val();
-        var sem = $('[name="sem"]').val();
-        var branch = $('[name="branch"]').val();
+        var sem = $('[name="sem"]').val() || [];
+        var branch = $('[name="branch"]').val() || [];
         var token = $('#token').val();
         
         $.ajax({
@@ -76,6 +93,5 @@
         });
         return false;
     });
-    $('[name="sem"]').val([1,2]).prop("selected", true);
     $('select').material_select();
 </script>
