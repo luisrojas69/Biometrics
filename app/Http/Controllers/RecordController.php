@@ -73,11 +73,14 @@ class RecordController extends Controller
         if($request->ajax())
         {
             $faculty = DB::table('faculties')
+                ->join('subfacrels', 'faculties.fid', '=', 'subfacrels.fid')
                 ->select('*')
-                ->where('fid','=',$request->get('id'))->get();
+                ->where('faculties.fid','=',$request->get('id'))
+                ->get();
             
-            return view('admin.edit_facu_form')
-                ->with(['faculty'=>$faculty]);
+            /*return view('admin.edit_facu_form')
+                ->with(['faculty'=>$faculty]);*/
+            return var_dump($faculty);
         }
     }
     

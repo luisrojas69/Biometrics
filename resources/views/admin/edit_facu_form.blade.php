@@ -1,9 +1,3 @@
-<script type="text/javascript">
-    $('select').material_select();
-    //edit_stud
-</script>
-<h3>Hello {{$faculty[0]->name}} </h3>
-
 <div class="container">
     <form id="edit_final" method="post" action="#">
         <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
@@ -29,6 +23,14 @@
                     <option value="CIVIL" @if($faculty[0]->branch == 'CIVIL')active selected @endif>CIVIL</option>
                     <option value="EE" @if($faculty[0]->branch == 'EE')active selected @endif>EE</option>
                     <option value="BBA" @if($faculty[0]->branch == 'BBA')active selected @endif>BBA</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <select name="sub">
+                    @forelse($faculty[0]->sub as $subject)
                 </select>
             </div>
         </div>
@@ -58,4 +60,5 @@
         });
         return false;
     });
+    $('select').material_select();
 </script>
