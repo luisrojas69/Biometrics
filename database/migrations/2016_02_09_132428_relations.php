@@ -13,13 +13,16 @@ class Relations extends Migration
     public function up()
     {
         Schema::create('relations', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('enid');
+            $table->string('enid',8);
             $table->string('code');
-            $table->string('fid');
+            $table->string('fid',9);
             $table->integer('attended');
             $table->integer('total');
             $table->timestamps();
+
+            $table->foreign('code')->references('code')->on('subjects');
+            $table->foreign('fid')->references('fid')->on('faculties');
+            $table->foreign('enid')->references('enid')->on('students');
         });
     }
 
