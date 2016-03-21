@@ -16,9 +16,6 @@ class SubFacRelations extends Migration
             $table->string('code');
             $table->string('fid',9);
             $table->timestamps();
-
-            $table->foreign('code')->references('code')->on('subjects');
-            $table->foreign('fid')->references('fid')->on('faculties');
         });
     }
 

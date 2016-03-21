@@ -19,10 +19,6 @@ class Relations extends Migration
             $table->integer('attended');
             $table->integer('total');
             $table->timestamps();
-
-            $table->foreign('code')->references('code')->on('subjects');
-            $table->foreign('fid')->references('fid')->on('faculties');
-            $table->foreign('enid')->references('enid')->on('students');
         });
     }
 
