@@ -27,10 +27,17 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" id="sub">
             <div class="input-field col s12">
-                <select name="sub">
-                    @forelse($faculty[0]->sub as $subject)
+                <select name="sub" multiple>
+                <option value="" disabled>Associated Subjects</option>
+                    @foreach($sub_taught as $taught)
+                        <option value="{{$taught->code}}" selected>{{$taught->name}} ({{$taught->code}})
+                        </option>
+                    @endforeach
+                    @foreach($sub_list as $list)
+                        <option value="{{$list->code}}">{{$list->name}} ({{$list->code}})</option>
+                    @endforeach
                 </select>
             </div>
         </div>
@@ -46,13 +53,14 @@
         var name = $('[name="name"]').val();
         var enid = $('[name="enid"]').val();
         var branch = $('[name="branch"]').val();
+        var sub = $('[name="sub"]').val() || [];
         var token = $('#token').val();
         
         $.ajax({
             url: 'edit_facu',
             headers: {'X-CSRF-TOKEN': token},
             type: 'POST',
-            data: {name:name, enid:enid, branch:branch},
+            data: {name:name, enid:enid, branch:branch, sub:sub},
             
             success: function(data) {
                 $('#padd').html(data);
@@ -60,5 +68,23 @@
         });
         return false;
     });
+
+    $('[name="branch"]').change(function() {
+        var branch = $('ul.dropdown-content li.selected').text();
+        var token = $('#token').val();
+        $.ajax({
+            url: 'getSubjects_facuEdit',
+            headers: {'X-CSRF-TOKEN': token},
+            type: 'POST',
+            data: {branch:branch},
+
+            success: function(data) {
+                $('#sub').html(data);
+                $('select').material_select();
+            }
+        });
+        return false;
+    });
+
     $('select').material_select();
 </script>

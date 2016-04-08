@@ -10,6 +10,7 @@ class student extends Model
         'name',
         'enid',
         'sem',
-        'branch'
+        'branch',
+        'section'
         ];    
 }

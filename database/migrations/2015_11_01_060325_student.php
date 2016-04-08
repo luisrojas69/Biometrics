@@ -17,6 +17,7 @@ class Student extends Migration
             $table->string('enid',8)->unique();
             $table->integer('sem');
             $table->string('branch');
+            $table->string('section',1);
             $table->timestamps();
 
             $table->primary('enid');

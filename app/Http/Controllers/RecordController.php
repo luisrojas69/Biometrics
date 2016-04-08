@@ -41,8 +41,35 @@ class RecordController extends Controller
         $input['created_at'] = Carbon::now();
         $input['updated_at'] = Carbon::now();
         student::create($input);
+
+        $codes = DB::select("select code from subjects where sem like '%".$request->get('sem')."%' and branch like '%".$request->get('branch')."%'");
+
+        //$fids = DB::select("select fid from subfacrels where code like'%".$request."'");
+
+        $sub_code = array();
+
+        foreach ($codes as $key => $value) {
+            array_push($sub_code, $value->code);
+        }
+
+        $sub_code = implode(",", $sub_code);
+
+        foreach ($codes as $key => $value) {
+            $fids = DB::select('select fid from subfacrels where code = ?', [$value->code]);
+
+            $fid_temp = array();
+
+            foreach ($fids as $key => $value) {
+                array_push($fid_temp, $value->fid);
+            }
+
+            array_unique($fid_temp, SORT_STRING);
+
+            $fid_temp = implode(",", $fid_temp);
+
+            DB::insert('insert into relations (enid, code, fid, attended, total, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?)', [$request->get('enid'), $sub_code, $fid_temp, 0, 0, Carbon::now(), Carbon::now()]);
+        }
         return view('admin.admin_master');
-        //return redirect('/dashboard');
     }
     
     public function add_co(Request $request)
@@ -58,14 +85,17 @@ class RecordController extends Controller
     
     public function add_facu(Request $request)
     {
-        $input = $request->all();
+        var_dump($request->get('sub'));
+        /*$input = $request->all();
+        $input['sections'] = implode(",", $input['sections']);
         $input['created_at'] = Carbon::now();
         $input['updated_at'] = Carbon::now();
         faculty::create($input);
 
         $input['code'] = implode(",", $input['sub']);
         subfacrel::create($input);
-        return view('admin.admin_master');
+
+        return view('admin.admin_master');*/
     }
     
     public function edit_facu_post(Request $request)
@@ -77,10 +107,32 @@ class RecordController extends Controller
                 ->select('*')
                 ->where('faculties.fid','=',$request->get('id'))
                 ->get();
+
+            $sub_list = DB::table('subjects')
+                ->select('name', 'code')
+                ->where('branch', 'like', '%'.$faculty[0]->branch.'%')
+                ->get();
+
+            $sub_taught = DB::table('subfacrels')
+                ->select('code')
+                ->where('fid', '=', $faculty[0]->fid)
+                ->get();
+
+            $sub_taught = explode(",", $sub_taught[0]->code);
+
+            $taught_temp = array();
+            $list_temp = array();
+
+            foreach ($sub_list as $key => $value)
+            {
+                if (in_array($value->code, $sub_taught))
+                    array_push($taught_temp, $value);
+                else
+                    array_push($list_temp, $value);
+            }
             
-            /*return view('admin.edit_facu_form')
-                ->with(['faculty'=>$faculty]);*/
-            return var_dump($faculty);
+            return view('admin.edit_facu_form')
+                ->with(['faculty'=>$faculty, 'sub_list'=>$list_temp, 'sub_taught'=>$taught_temp]);
         }
     }
     
@@ -91,10 +143,14 @@ class RecordController extends Controller
             DB::table('faculties')
                 ->where('fid', $request->get('enid'))
                 ->update(['name' => $request->get('name'),
-                          'sem' => $request->get('sem'),
                           'branch' => $request->get('branch'),
                           'updated_at' => Carbon::now()
                          ]);
+
+            DB::table('subfacrels')
+                ->where('fid', $request->get('enid'))
+                ->update(['code' => implode(",", $request->get('sub'))]);
+
             return view('admin.edit_facu');
         }
     }
@@ -215,6 +271,10 @@ class RecordController extends Controller
             DB::table('faculties')
                 ->where('fid', '=', $request->get('enid'))
                 ->delete();
+
+            DB::table('subfacrels')
+                ->where('fid', '=', $request->get('enid'))
+                ->delete();
         }
     }
     
@@ -278,8 +338,53 @@ class RecordController extends Controller
         if ($request->ajax())
         {
             $branch = $request->get('branch');
+            $str = '<div class="row">
+                        <p class="input-field col s12">Select all subjects that will be taught by this teacher</p>';
+
+            $res = DB::table('subjects')
+                ->select('code', 'name')
+                ->where('branch','like', '%'.$branch.'%')->get();
+
+            if (count($res) == 0) {
+                $str = '<div class="row center-align">No subjects available</div>';
+            }
+
+            else {
+                $arr = array();
+                foreach ($res as $key => $value)
+                {
+                    $str = $str.'<div class="input-field col s8">
+                                    <input type="checkbox" id="'.$value->code.'" name="sub_name" value="'.$value->code.'">
+                                    <label style = "color:black;" for="'.$value->code.'"><b>'.$value->name.' ('.$value->code.')</b></label>
+                                </div>
+                                <div class="input-field col s4">
+                                    <select name="sec'.$value->code.'[]" multiple>
+                                        <option value="" disabled selected>Choose section(s)</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                    </select>
+                                </div>';
+
+                    //array_push($arr, $value->code => $'sec'.$value->code.'[]');
+                }
+            }
+
+            $str = $str.'</select>
+                    </div>
+                </div>';
+            return /*arr(*/$str/*, $arr)*/;
+        }
+    }
+
+    public function getSubjects_facuEdit(Request $request)
+    {
+        if ($request->ajax())
+        {
+            $branch = $request->get('branch');
             $str = '<div class="input-field col s12">
-                        <select name="sub[]" multiple>
+                        <select name="sub" multiple>
                             <option value="" disabled selected>Select Subjects</option>';
 
             $res = DB::table('subjects')
@@ -294,5 +399,15 @@ class RecordController extends Controller
             $str = $str.'</select></div>';
             return $str;
         }
+    }
+
+    public function co_monitor()
+    {
+        echo "inside course monitor";
+    }
+
+    public function facu_monitor()
+    {
+        echo "inside faculty monitor";
     }
 }

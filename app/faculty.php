@@ -11,6 +11,7 @@ class faculty extends Model
         'email',
         'fid',
         'sem',
-        'branch'
+        'branch',
+        'sections'
         ];
 }

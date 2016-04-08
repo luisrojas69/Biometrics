@@ -1,9 +1,3 @@
-<script type="text/javascript">
-    $('select').material_select();
-    //edit_stud
-</script>
-<h3>Hello {{$student[0]->name}} </h3>
-
 <div class="container">
     <form id="edit_final" method="post" action="#">
         <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
@@ -52,6 +46,7 @@
 </div>
 
 <script type="text/javascript">
+    $('select').material_select();
     $('#edit_final').submit(function() {
         var name = $('[name="name"]').val();
         var enid = $('[name="enid"]').val();

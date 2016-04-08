@@ -20,7 +20,11 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="input-field col s12">
+            <div class="input-field col s4">
+                <input type="checkbox" id="test1" checked="checked">
+                <label for="test1">Red</label>
+            </div>
+            <div class="input-field col s4">
                 <select name="branch" multiple>
                     <option value="" disabled selected>Choose Branch</option>
                     <option value="CSE">CSE</option>
@@ -31,6 +35,16 @@
                     <option value="BBA">BBA</option>
                 </select>
             </div>
+            <div class="input-field col s4">
+                <select name="sections[]" multiple>
+                    <option value="" disabled selected>Choose Section</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </div>
+        </div>
     </div>
     
     <script type="text/javascript">
@@ -49,6 +63,22 @@
             }
         });
         return false;
+    });
+    $('#test1').click(function() {
+        if ($('[name="branch"]').attr('disabled')) {
+            $('[name="branch"]').removeAttr('disabled');
+        }
+        else {
+            $('[name="branch"]').attr('disabled', 'disabled');
+        }
+        
+        if ($('[name="sections[]"]').attr('disabled')) {
+            $('[name="sections[]"]').removeAttr('disabled');
+        }
+        else {
+            $('[name="sections[]"]').attr('disabled', 'disabled');
+        }
+        $('select').material_select();
     });
 </script>
 </body>

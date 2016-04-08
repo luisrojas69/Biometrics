@@ -20,12 +20,6 @@
                 <label for="email">Faculty E-Mail ID</label>
             </div>
         </div>
-        <!--<div class="row">
-            <div class="input-field col s12">
-                <input type="text" name="f_enid">
-                <label for="enid">Faculty Enrollment ID</label>
-            </div>
-        </div>-->
         <div class="row" id="branch">
             <div class="input-field col s12">
                 <select name="branch">
@@ -39,7 +33,7 @@
                 </select>
             </div>
         </div>
-        <div class="row" id="sub"></div>
+        <div id="sub_sec"></div>
     <div class="row center-align">
         <button type="submit" class="btn orange waves-effect space">Submit</button>
         <button type="reset" class="btn orange waves-effect">Reset</button>
@@ -50,7 +44,7 @@
 <script type="text/javascript">
     $('select').material_select();
     $('[name="branch"]').change(function() {
-        var branch = $('ul.dropdown-content li.selected').text();
+        var branch = $('ul.dropdown-content.select-dropdown li.selected').text();
         var token = $('#token').val();
         $.ajax({
             url: 'getSubjects',
@@ -59,9 +53,31 @@
             data: {branch:branch},
 
             success: function(data) {
-                $('#sub').html(data);
+                $('#sub_sec').html(data);
                 $('select').material_select();
             }
+        });
+        return false;
+    });
+
+
+    $('#add_facu').submit(function () {
+        //var sub = [];
+        var sub = $('[name="sub_name"]').val()
+        /*$('input:checkbox[name="sub_name"]:checked').each(function() {
+            alert($(this).val());
+        });*/
+        //var sub = $('input:checkbox[name="sub_name"]:checked').serialize();
+        var name = $('[name="name"]').val();
+        var email = $('[name="email"]').val();
+        var branch = $('[name="branch"]').val();
+        var token = $('#token').val();
+
+        $.ajax({
+            url: 'add_facu',
+            headers: {'X-CSRF-TOKEN': token},
+            type: 'POST',
+            data: {sub:sub}
         });
         return false;
     });

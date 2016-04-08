@@ -40,6 +40,16 @@
                 </select>
             </div>
         </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <select name="section">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </div>
+        </div>
     <div class="row center-align">
         <button type="submit" class="btn orange waves-effect space">Submit</button>
         <button type="reset" class="btn orange waves-effect">Reset</button>
