@@ -15,6 +15,7 @@ class SubFacRelations extends Migration
         Schema::create('subfacrels', function (Blueprint $table) {
             $table->string('code');
             $table->string('fid',9);
+            $table->string('secs');
             $table->timestamps();
         });
     }

@@ -24,7 +24,7 @@
 
 </head>
     
-<body>
+<body class="scrollbar">
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper orange">

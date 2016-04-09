@@ -42,32 +42,11 @@ class RecordController extends Controller
         $input['updated_at'] = Carbon::now();
         student::create($input);
 
-        $codes = DB::select("select code from subjects where sem like '%".$request->get('sem')."%' and branch like '%".$request->get('branch')."%'");
+        $values = DB::select("select sf.code, fid from subfacrels as sf inner join subjects as s on sf.code = s.code where sem like '%".$input['sem']."%' and branch like '%".$input['branch']."%' and secs like '%".$input['section']."%'");
 
-        //$fids = DB::select("select fid from subfacrels where code like'%".$request."'");
-
-        $sub_code = array();
-
-        foreach ($codes as $key => $value) {
-            array_push($sub_code, $value->code);
-        }
-
-        $sub_code = implode(",", $sub_code);
-
-        foreach ($codes as $key => $value) {
-            $fids = DB::select('select fid from subfacrels where code = ?', [$value->code]);
-
-            $fid_temp = array();
-
-            foreach ($fids as $key => $value) {
-                array_push($fid_temp, $value->fid);
-            }
-
-            array_unique($fid_temp, SORT_STRING);
-
-            $fid_temp = implode(",", $fid_temp);
-
-            DB::insert('insert into relations (enid, code, fid, attended, total, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?)', [$request->get('enid'), $sub_code, $fid_temp, 0, 0, Carbon::now(), Carbon::now()]);
+        foreach ($values as $key => $value) {
+            DB::insert('insert into relations (enid, code, fid, attended, total, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?)', 
+                [$input['enid'], $value->code, $value->fid, 0, 0, Carbon::now(), Carbon::now()]);
         }
         return view('admin.admin_master');
     }
@@ -85,17 +64,28 @@ class RecordController extends Controller
     
     public function add_facu(Request $request)
     {
-        var_dump($request->get('sub'));
-        /*$input = $request->all();
-        $input['sections'] = implode(",", $input['sections']);
+        //return(var_dump($request->all()));
+        $input = $request->all();
+        $sections = array();
+        $sec_temp = array();
+        foreach ($input['sections'] as $key => $value) {
+            $sec_temp = array_merge($sec_temp, str_split($value));
+            $sections[$key] = implode(",", str_split($value));
+        }
+        $sec_temp = array_unique($sec_temp);
+        $sec_temp = implode(",", $sec_temp);
         $input['created_at'] = Carbon::now();
         $input['updated_at'] = Carbon::now();
-        faculty::create($input);
 
-        $input['code'] = implode(",", $input['sub']);
-        subfacrel::create($input);
+        DB::insert('insert into faculties (name, fid, email, branch, sections, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?)', [$input['name'], $input['fid'], $input['email'], $input['branch'], $sec_temp, $input['created_at'], $input['updated_at']]);
+        //faculty::create($input);
 
-        return view('admin.admin_master');*/
+        foreach ($input['sub'] as $key => $value) {
+            DB::insert('insert into subfacrels (code, fid, secs, created_at, updated_at) values (?, ?, ?, ?, ?)', [$value, $input['fid'], $sections[$key], $input['created_at'], $input['updated_at']]);
+        }
+
+        return view('admin.add_facu');
+        //return view('admin.admin_master');
     }
     
     public function edit_facu_post(Request $request)
@@ -358,7 +348,7 @@ class RecordController extends Controller
                                     <label style = "color:black;" for="'.$value->code.'"><b>'.$value->name.' ('.$value->code.')</b></label>
                                 </div>
                                 <div class="input-field col s4">
-                                    <select name="sec'.$value->code.'[]" multiple>
+                                    <select name="sec'.$value->code.'" multiple>
                                         <option value="" disabled selected>Choose section(s)</option>
                                         <option value="A">A</option>
                                         <option value="B">B</option>

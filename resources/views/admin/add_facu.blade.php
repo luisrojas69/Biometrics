@@ -1,5 +1,5 @@
 <div class="container">
-{!! Form::open(array('url' => 'add_facu', 'id' => 'add_facu')) !!}
+<form id="add_facu_form" method="post" action="#">
     <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
     <div class="row">
         <div class="input-field col s12">
@@ -37,7 +37,7 @@
         <button type="submit" class="btn orange waves-effect space">Submit</button>
         <button type="reset" class="btn orange waves-effect">Reset</button>
     </div>
-{!! Form::close() !!}
+</form>
 </div>
 <script type="text/javascript">
     $('select').material_select();
@@ -59,14 +59,24 @@
     });
 
 
-    $('#add_facu').submit(function () {
-        //var sub = [];
-        var sub = $('[name="sub_name"]').val()
-        /*$('input:checkbox[name="sub_name"]:checked').each(function() {
-            alert($(this).val());
-        });*/
-        //var sub = $('input:checkbox[name="sub_name"]:checked').serialize();
+    $('#add_facu_form').submit(function () {
+        var sub = $('input:checkbox[name="sub_name"]:checked').serialize().split('=');
+        for (var i = 1; i < sub.length - 1; i++) {
+            sub[i] = sub[i].substring(0,sub[i].indexOf("&"));
+        }
+        sub.shift();
+
+        var secs = [];
+        for (var i = 0; i < sub.length; i++) {
+            var str_tmp = '[name = "sec' + sub[i] + '"]';
+            var value = document.querySelector(str_tmp);
+            //value = $(value);
+            value = $(value).prev();
+            var options = $(value).children(".active").text();
+            secs.push(options);
+        }
         var name = $('[name="name"]').val();
+        var fid = $('[name="fid"]').val();
         var email = $('[name="email"]').val();
         var branch = $('[name="branch"]').val();
         var token = $('#token').val();
@@ -75,7 +85,11 @@
             url: 'add_facu',
             headers: {'X-CSRF-TOKEN': token},
             type: 'POST',
-            data: {sub:sub}
+            data: {name:name,fid:fid,email:email,sub:sub,branch:branch,sections:secs},
+
+            success: function(data) {
+                $('#padd').html(data);
+            }
         });
         return false;
     });

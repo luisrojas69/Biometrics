@@ -43,6 +43,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <select name="section">
+                    <option value="" disabled selected>Choose a Section</option>
                     <option value="A">A</option>
                     <option value="B">B</option>
                     <option value="C">C</option>
