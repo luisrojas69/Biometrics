@@ -98,7 +98,7 @@ class RecordController extends Controller
                 ->where('faculties.fid','=',$request->get('id'))
                 ->get();
 
-            $sub_list = DB::table('subjects')
+            /*$sub_list = DB::table('subjects')
                 ->select('name', 'code')
                 ->where('branch', 'like', '%'.$faculty[0]->branch.'%')
                 ->get();
@@ -119,7 +119,9 @@ class RecordController extends Controller
                     array_push($taught_temp, $value);
                 else
                     array_push($list_temp, $value);
-            }
+            }*/
+
+            //ty
             
             return view('admin.edit_facu_form')
                 ->with(['faculty'=>$faculty, 'sub_list'=>$list_temp, 'sub_taught'=>$taught_temp]);
@@ -360,11 +362,7 @@ class RecordController extends Controller
                     //array_push($arr, $value->code => $'sec'.$value->code.'[]');
                 }
             }
-
-            $str = $str.'</select>
-                    </div>
-                </div>';
-            return /*arr(*/$str/*, $arr)*/;
+            return $str;
         }
     }
 

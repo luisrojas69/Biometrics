@@ -1,18 +1,20 @@
 <div class="container">
     <form id="edit_final" method="post" action="#">
         <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
-    <div class="row">
-        <div class="input-field col s12">
-            <input type="text" name="name" value="{{$faculty[0]->name}}">
-            <label for="name" class="active">Name of Faculty</label>
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="text" name="name" value="{{$faculty[0]->name}}">
+                <label for="name" class="active">Name of Faculty</label>
+            </div>
         </div>
-    </div>
         <div class="row">
             <div class="input-field col s12">
                 <input type="text" name="enid" value="{{$faculty[0]->fid}}" disabled>
                 <label for="enid" class="active">Enrollment Key</label>
             </div>
         </div>
+
+        <div class="row" id="subs"></div>
 
         <div class="row">
             <div class="input-field col s12">
