@@ -128,8 +128,8 @@ Route::post('/getSubjects', 'RecordController@getSubjects');
 
 Route::post('/getSubjects_facuEdit', 'RecordController@getSubjects_facuEdit');
 
-/*Route::post('/post_req', function() {
-    if(Request::ajax()) {
-        return Response::json(Request::all());
-    }
-});*/
+Route::get('/view_stud', 'RecordController@view_stud');
+
+Route::get('/view_facu', 'RecordController@view_facu');
+
+Route::get('/view_co', 'RecordController@view_co');

@@ -124,3 +124,36 @@ $('a#toggle_search').click(function() {
     });
     return false;
 });
+
+$('#view_stud').click(function() {
+    if(elem) {
+        elem.removeClass('active');
+    }
+    elem = $(this);
+    elem.addClass('active');
+    $.get('view_stud', function(data) {
+        $('#padd').html(data);
+    });
+});
+
+$('#view_facu').click(function() {
+    if(elem) {
+        elem.removeClass('active');
+    }
+    elem = $(this);
+    elem.addClass('active');
+    $.get('view_facu', function(data) {
+        $('#padd').html(data);
+    });
+});
+
+$('#view_co').click(function() {
+    if(elem) {
+        elem.removeClass('active');
+    }
+    elem = $(this);
+    elem.addClass('active');
+    $.get('view_co', function(data) {
+        $('#padd').html(data);
+    });
+});

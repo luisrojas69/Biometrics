@@ -398,4 +398,37 @@ class RecordController extends Controller
     {
         echo "inside faculty monitor";
     }
+
+    public function view_stud(Request $request)
+    {
+        if($request->ajax())
+        {
+            $stu = DB::select("Select * from students");
+
+            return view('admin.view_stud')
+                ->with(['stu'=>$stu]);
+        }
+    }
+
+    public function view_facu(Request $request)
+    {
+        if($request->ajax())
+        {
+            $facu = DB::select("Select * from faculties");
+
+            return view('admin.view_facu')
+                ->with(['facu'=>$facu]);
+        }
+    }
+
+    public function view_co(Request $request)
+    {
+        if($request->ajax())
+        {
+            $co = DB::select("Select * from subjects");
+
+            return view('admin.view_co')
+                ->with(['co'=>$co]);
+        }
+    }
 }
